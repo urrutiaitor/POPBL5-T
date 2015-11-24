@@ -1,0 +1,9 @@
+MENU0%Fitxategia%Archivo%File
+MENU1%Azpi fitxategia%Subarchivo%Under file
+MENU2%Edizioa%Editar%Edit
+MENU3%Azpi edizioa%Subeditar%Under edit
+MENU4%Konfigurazioa%Configuracion%Setting
+MENU5%Hizkuntza%Idioma%Lenguage
+MENU6%Euskera%Vasco%Basque
+MENU7%Gaztelera%Espanol%Spanish
+MENU8%Ingelesa%Ingles%English
