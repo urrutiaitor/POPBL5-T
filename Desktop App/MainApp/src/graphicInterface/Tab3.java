@@ -2,7 +2,9 @@ package graphicInterface;
 
 import java.awt.Component;
 
-public class Tab3 extends Component {
+import javax.swing.JPanel;
+
+public class Tab3 extends JPanel {
 
 	public Tab3 () {
 		
