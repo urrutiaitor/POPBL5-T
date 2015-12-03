@@ -1,10 +1,13 @@
 package launcher;
 
+import graphicInterface.Window;
+import operation.House;
+
 public class Main {
 
 	public static void main(String[] args) {
-		// TODO Auto-generated method stub
-
+		House house = new House();
+		Window window = new Window(house);
 	}
 
 }
