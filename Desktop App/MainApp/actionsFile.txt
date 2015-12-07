@@ -6,11 +6,11 @@ ACTION4%Atea ireki%Abrir puerta%Open door
 ACTION5%Atea itxi%Cerrar puerta%Close door
 ACTION6%Alarma hasi%Iniciar alarma%Start alarm
 ACTION7%Alarma gelditu%Parar alarma%Stop alarm
-ACTION8%Ipar-mendebaldeko argia biztu%Encender luz noroeste%Switch on northwest light
-ACTION9%Ipar-mendebaldeko agria itzali%Apagar luz noroeste%Switch off northwest light
-ACTION10%Ipar-ekialdeko argia biztu%Encender luz noreste%Switch on northeast light
-ACTION11%Ipar-ekialdeko argia itzali%Apagar luz noreste%Switch off northeast light
-ACTION12%Hego-mendebaldeko argia biztu%Encender luz suroeste%Switch on southwest light
-ACTION13%Hego-mendebaldeko argia itzali%Apagar luz suroeste%Switch off southwest light
-ACTION14%Hego-ekialdeko argia biztu%Encender luz sureste%Switch on southeast light
-ACTION15%Hego-ekialdeko argia itzali%Apagar luz sureste%Switch off southeast light
+ACTION8%1 argia biztu%Encender luz 1%Switch on light 1
+ACTION9%1 agria itzali%Apagar luz 1%Switch off light 1
+ACTION10%2 argia biztu%Encender luz 2%Switch on light 2
+ACTION11%2 argia itzali%Apagar luz 2%Switch off light 2
+ACTION12%3 argia biztu%Encender luz 3%Switch on light 3
+ACTION13%3 argia itzali%Apagar luz 3%Switch off light 3
+ACTION14%4 argia biztu%Encender luz 4%Switch on light 4
+ACTION15%4 argia itzali%Apagar luz 4%Switch off light 4

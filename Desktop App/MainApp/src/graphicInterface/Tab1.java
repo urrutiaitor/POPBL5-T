@@ -65,7 +65,7 @@ public class Tab1 extends JPanel implements Observer {
 		actionsLabel = new JLabel[16];
 		for (int i = 0; i < 16; i++) {
 			subPanel[i] = new JPanel(new BorderLayout());
-			subPanel[i].add(actionsLabel[i] = new JLabel(window.getActionsName()[i][window.getSelectedLenguage()]), SwingConstants.CENTER);
+			subPanel[i].add(actionsLabel[i] = new JLabel(window.getActionsName()[i][window.getSelectedLenguage()]));
 		}
 		
 		subPanel[0].add(new JLabel(blindUpIcon), BorderLayout.WEST);
@@ -138,6 +138,22 @@ public class Tab1 extends JPanel implements Observer {
         }
         
         return panel;
+	}
+	
+	public void refresh() {
+		blindLabel.setBorder(BorderFactory.createTitledBorder(window.getObjectsName()[0][window.getSelectedLenguage()]));
+		alarmLabel.setBorder(BorderFactory.createTitledBorder(window.getObjectsName()[1][window.getSelectedLenguage()]));
+		heatingLabel.setBorder(BorderFactory.createTitledBorder(window.getObjectsName()[2][window.getSelectedLenguage()]));
+		doorLabel.setBorder(BorderFactory.createTitledBorder(window.getObjectsName()[3][window.getSelectedLenguage()]));
+		
+		for (int i = 0; i < 4; i++) {
+			lightLabel[i].setBorder(BorderFactory.createTitledBorder(window.getObjectsName()[4 + i][window.getSelectedLenguage()]));
+		}
+		
+		for (int i = 0; i < 16; i++) {
+			actionsLabel[i].setText(window.getActionsName()[i][window.getSelectedLenguage()]);
+		}
+
 	}
 	
 	@Override

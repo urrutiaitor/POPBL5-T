@@ -54,7 +54,9 @@ public class Window extends JFrame implements ActionListener {
 	JMenu menuFile, menuEdit, menuConfiguration, lenguage;
 	JMenuItem optionMenu, optionEdit;
 	JMenuItem lenguage1, lenguage2, lenguage3;
-	JPanel tab1, tab2, tab3;
+	Tab1 tab1;
+	Tab2 tab2;
+	Tab3 tab3;
 
 	public Window (House house) {
 		this.house = house;
@@ -221,6 +223,8 @@ public class Window extends JFrame implements ActionListener {
 		lenguage1.setText(menuName[6][selectedLenguage]);
 		lenguage2.setText(menuName[7][selectedLenguage]);
 		lenguage3.setText(menuName[8][selectedLenguage]);
+		
+		tab1.refresh();
 
 	}
 	

@@ -2,7 +2,7 @@ OBJECT0%Pertsianak%Persianas%Blinds
 OBJECT1%Berogailua%Calefacción%Heating
 OBJECT2%Atea%Puerta%Door
 OBJECT3%Alarma%Alarma%Alarm
-OBJECT4%Ipar-mendebaldeko argia%Luz noroeste%Northwest light
-OBJECT5%Ipar-ekialdeko argia%Luz noreste%Northeast light
-OBJECT6%Hego-mendebaldeko argia%Luz suroeste%Southwest light
-OBJECT7%Hego-ekialdeko argia%Luz sureste%Southeast light
+OBJECT4%1 argia%Luz 1%Light 1
+OBJECT5%2 argia%Luz 2%Light 2
+OBJECT6%3 argia%Luz 3%Light 3
+OBJECT7%4 argia%Luz 4%Light 4
