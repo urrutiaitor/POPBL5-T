@@ -39,15 +39,15 @@ public class Tab1 extends JPanel implements Observer {
 	public Tab1 (Window window) {
 		this.window = window;
 		
-		this.setLayout(new GridLayout(1, 2));
+		this.setLayout(new GridLayout(1, 2, 10, 10));
 		this.add(ilustrationPanel());
 		this.add(dataPanel());
 	}
 
 	private Component ilustrationPanel() {
-		JPanel panel = new JPanel(new GridLayout(2, 1));
+		JPanel panel = new JPanel(new GridLayout(2, 1, 10, 10));
 		
-		JPanel subPanel = new JPanel(new GridLayout(2, 2));
+		JPanel subPanel = new JPanel(new GridLayout(2, 2, 10, 10));
 		subPanel.add(createBlindPanel());
 		subPanel.add(createHeatingPanel());
 		subPanel.add(createDoorPanel());
@@ -60,12 +60,12 @@ public class Tab1 extends JPanel implements Observer {
 	}
 
 	private Component dataPanel() {
-		JPanel panel = new JPanel(new GridLayout(8, 2));
+		JPanel panel = new JPanel(new GridLayout(8, 2, 5, 5));
 		JPanel subPanel[] = new JPanel[16];
 		actionsLabel = new JLabel[16];
 		for (int i = 0; i < 16; i++) {
 			subPanel[i] = new JPanel(new BorderLayout());
-			subPanel[i].add(actionsLabel[i] = new JLabel(window.getActionsName()[i][window.getSelectedLenguage()]), SwingConstants.CENTER);
+			subPanel[i].add(actionsLabel[i] = new JLabel(window.getActionsName()[i][window.getSelectedLenguage()]));
 		}
 		
 		subPanel[0].add(new JLabel(blindUpIcon), BorderLayout.WEST);
@@ -125,7 +125,7 @@ public class Tab1 extends JPanel implements Observer {
 	}
 	
 	private Component createLightPanel() {
-		JPanel panel = new JPanel(new GridLayout(2, 2));
+		JPanel panel = new JPanel(new GridLayout(2, 2, 10, 10));
 		
 		lightLabel = new JLabel[4];
 		
@@ -138,6 +138,22 @@ public class Tab1 extends JPanel implements Observer {
         }
         
         return panel;
+	}
+	
+	public void refresh() {
+		blindLabel.setBorder(BorderFactory.createTitledBorder(window.getObjectsName()[0][window.getSelectedLenguage()]));
+		alarmLabel.setBorder(BorderFactory.createTitledBorder(window.getObjectsName()[1][window.getSelectedLenguage()]));
+		heatingLabel.setBorder(BorderFactory.createTitledBorder(window.getObjectsName()[2][window.getSelectedLenguage()]));
+		doorLabel.setBorder(BorderFactory.createTitledBorder(window.getObjectsName()[3][window.getSelectedLenguage()]));
+		
+		for (int i = 0; i < 4; i++) {
+			lightLabel[i].setBorder(BorderFactory.createTitledBorder(window.getObjectsName()[4 + i][window.getSelectedLenguage()]));
+		}
+		
+		for (int i = 0; i < 16; i++) {
+			actionsLabel[i].setText(window.getActionsName()[i][window.getSelectedLenguage()]);
+		}
+
 	}
 	
 	@Override
