@@ -39,15 +39,15 @@ public class Tab1 extends JPanel implements Observer {
 	public Tab1 (Window window) {
 		this.window = window;
 		
-		this.setLayout(new GridLayout(1, 2));
+		this.setLayout(new GridLayout(1, 2, 10, 10));
 		this.add(ilustrationPanel());
 		this.add(dataPanel());
 	}
 
 	private Component ilustrationPanel() {
-		JPanel panel = new JPanel(new GridLayout(2, 1));
+		JPanel panel = new JPanel(new GridLayout(2, 1, 10, 10));
 		
-		JPanel subPanel = new JPanel(new GridLayout(2, 2));
+		JPanel subPanel = new JPanel(new GridLayout(2, 2, 10, 10));
 		subPanel.add(createBlindPanel());
 		subPanel.add(createHeatingPanel());
 		subPanel.add(createDoorPanel());
@@ -60,7 +60,7 @@ public class Tab1 extends JPanel implements Observer {
 	}
 
 	private Component dataPanel() {
-		JPanel panel = new JPanel(new GridLayout(8, 2));
+		JPanel panel = new JPanel(new GridLayout(8, 2, 5, 5));
 		JPanel subPanel[] = new JPanel[16];
 		actionsLabel = new JLabel[16];
 		for (int i = 0; i < 16; i++) {
@@ -125,7 +125,7 @@ public class Tab1 extends JPanel implements Observer {
 	}
 	
 	private Component createLightPanel() {
-		JPanel panel = new JPanel(new GridLayout(2, 2));
+		JPanel panel = new JPanel(new GridLayout(2, 2, 10, 10));
 		
 		lightLabel = new JLabel[4];
 		

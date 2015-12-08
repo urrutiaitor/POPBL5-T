@@ -9,6 +9,7 @@ import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.io.IOException;
+import java.util.ArrayList;
 import java.util.Observer;
 
 import javax.swing.Box;
@@ -20,6 +21,7 @@ import javax.swing.JMenuItem;
 import javax.swing.JPanel;
 import javax.swing.JTabbedPane;
 
+import operation.Action;
 import operation.House;
 import operation.Reader;
 
@@ -31,6 +33,8 @@ public class Window extends JFrame implements ActionListener {
 	private static final long serialVersionUID = 1L;
 	
 	House house;
+	
+	ArrayList<Action> actionList;
 
 	String tabName[][];
 	String menuName[][];
@@ -45,10 +49,10 @@ public class Window extends JFrame implements ActionListener {
 	String objectsFilePath = "objectsFile.txt";
 
 	final static int LENGUAGECANT = 3;
-	final static int TABCANT = 3;
+	final static int TABCANT = 2;
 	final static int MENUCANT = 9;
 	final static int ACTIONCANT = 16;
-	final static int OBJECTCANT = 8;
+	final static int OBJECTCANT = 16;
 
 	JTabbedPane tabbedPane;
 	JMenu menuFile, menuEdit, menuConfiguration, lenguage;
@@ -56,7 +60,6 @@ public class Window extends JFrame implements ActionListener {
 	JMenuItem lenguage1, lenguage2, lenguage3;
 	Tab1 tab1;
 	Tab2 tab2;
-	Tab3 tab3;
 
 	public Window (House house) {
 		this.house = house;
@@ -100,8 +103,7 @@ public class Window extends JFrame implements ActionListener {
 		tabbedPane = new JTabbedPane();
 
 		tabbedPane.addTab(tabName[0][selectedLenguage], new ImageIcon("icons/tabIcon1.png"), tab1 = new Tab1(this));
-		tabbedPane.addTab(tabName[1][selectedLenguage], new ImageIcon("icons/tabIcon2.png"), tab2 = new Tab2());
-		tabbedPane.addTab(tabName[2][selectedLenguage], new ImageIcon("icons/tabIcon3.png"), tab3 = new Tab3());
+		tabbedPane.addTab(tabName[1][selectedLenguage], new ImageIcon("icons/tabIcon2.png"), tab2 = new Tab2(this));
 
 		house.addObserver((Observer) tab1);
 		
@@ -208,9 +210,9 @@ public class Window extends JFrame implements ActionListener {
 	}
 
 	public void refresh() {
+		
 		tabbedPane.setTitleAt(0, tabName[0][selectedLenguage]);
 		tabbedPane.setTitleAt(1, tabName[1][selectedLenguage]);
-		tabbedPane.setTitleAt(2, tabName[2][selectedLenguage]);
 
 		menuFile.setText(menuName[0][selectedLenguage]);
 		optionMenu.setText(menuName[1][selectedLenguage]);
@@ -225,7 +227,19 @@ public class Window extends JFrame implements ActionListener {
 		lenguage3.setText(menuName[8][selectedLenguage]);
 		
 		tab1.refresh();
+		tab2.refresh();
 
+	}
+
+	/*
+	 * 
+	 * EGITEKOO
+	 * 
+	 */
+	
+	public ArrayList<Action> getActionHistorical() {
+		ArrayList list = new ArrayList<>();
+		return list;
 	}
 	
 }

@@ -1,0 +1,16 @@
+OBJECT0%Pertsianak%Persianas%Blinds
+OBJECT1%Berogailua%Calefacción%Heating
+OBJECT2%Atea%Puerta%Door
+OBJECT3%Alarma%Alarma%Alarm
+OBJECT4%1 argia%Luz 1%Light 1
+OBJECT5%2 argia%Luz 2%Light 2
+OBJECT6%3 argia%Luz 3%Light 3
+OBJECT7%4 argia%Luz 4%Light 4
+OBJECT8%Baieztapena%Confirmación%Confirmation
+OBJECT9%Sarrera%Entrada%Input
+OBJECT10%Onartu%Aceptar%Accept
+OBJECT11%Ukatu%Denegar%Deny
+OBJECT12%Historia%Historial%Historical
+OBJECT13%Informazioa%Información%Info
+OBJECT14%Erabiltzailea%Usuario%User
+OBJECT15%Data%Fecha%Date
