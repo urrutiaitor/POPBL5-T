@@ -1,0 +1,3 @@
+TAB0%1 erlaitza%Pestana 1%Tab 1
+TAB1%2 erlaitza%Pestana 2%Tab 2
+TAB2%3 erlaitza%Pestana 3%Tab 3

@@ -1,0 +1,16 @@
+ACTION0%Pertsianak igo%Subir persianas%Up blinds
+ACTION1%Pertsianak jaitsi%Bajar persianas%Down blinds
+ACTION2%Berogailua hasi%Iniciar calefacción%Start heating
+ACTION3%Berogailua gelditu%Parar calefacción%Stop heating
+ACTION4%Atea ireki%Abrir puerta%Open door
+ACTION5%Atea itxi%Cerrar puerta%Close door
+ACTION6%Alarma hasi%Iniciar alarma%Start alarm
+ACTION7%Alarma gelditu%Parar alarma%Stop alarm
+ACTION8%1 argia biztu%Encender luz 1%Switch on light 1
+ACTION9%1 agria itzali%Apagar luz 1%Switch off light 1
+ACTION10%2 argia biztu%Encender luz 2%Switch on light 2
+ACTION11%2 argia itzali%Apagar luz 2%Switch off light 2
+ACTION12%3 argia biztu%Encender luz 3%Switch on light 3
+ACTION13%3 argia itzali%Apagar luz 3%Switch off light 3
+ACTION14%4 argia biztu%Encender luz 4%Switch on light 4
+ACTION15%4 argia itzali%Apagar luz 4%Switch off light 4
