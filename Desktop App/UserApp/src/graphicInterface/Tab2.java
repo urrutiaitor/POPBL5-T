@@ -47,7 +47,7 @@ public class Tab2 extends JPanel implements ListSelectionListener, ActionListene
 	}
 
 	private Component confirmationPanel() {
-		confirmationPanel = new JPanel();
+		confirmationPanel = new JPanel(new BorderLayout());
 		
 		confirmationPanel.add(inputPanel(), BorderLayout.CENTER);
 		confirmationPanel.add(buttonPanel(), BorderLayout.CENTER);

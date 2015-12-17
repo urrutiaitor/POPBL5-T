@@ -9,7 +9,7 @@ import java.net.UnknownHostException;
 public class SocketConnection implements Runnable {
 
 	final String host = "localhost";
-	final int portNumber = 81;
+	final int portNumber = 8080;
 	
 	Socket socket = null;
 	DataOutputStream os = null;
