@@ -4,6 +4,7 @@ import java.util.Scanner;
 
 import connection.MultiThreadedServer;
 import graphicInterface.Window;
+import operation.Action;
 import operation.House;
 
 public class Main {
@@ -19,7 +20,7 @@ public class Main {
 	}
 	
 	public Main () {
-		house = new House();
+		house = new House(Action.getNumActions());
 		window = new Window(house);
 		
 		house.addObserver(window);
