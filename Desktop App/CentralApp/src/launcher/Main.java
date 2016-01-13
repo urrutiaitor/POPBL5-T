@@ -2,7 +2,9 @@ package launcher;
 
 import java.util.Scanner;
 
+import connection.LineaSerie;
 import connection.MultiThreadedServer;
+import gnu.io.SerialPortEventListener;
 import graphicInterface.Window;
 import operation.Action;
 import operation.House;
@@ -12,6 +14,8 @@ public class Main {
 	House house;
 	Window window;
 	MultiThreadedServer server;
+	LineaSerie serie;
+	SerialPortEventListener serialListener;
 
 	public static void main(String[] args) {
 		Main main = new Main ();
@@ -27,6 +31,8 @@ public class Main {
 		
 		server = new MultiThreadedServer(9000, house);
 		new Thread(server).start();
+		serie = new LineaSerie();
+		serie.initialize(serialListener);
 	}
 	
 	public void loop () {

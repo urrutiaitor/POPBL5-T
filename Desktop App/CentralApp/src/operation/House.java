@@ -7,6 +7,8 @@ import java.util.Observable;
 import java.util.concurrent.Semaphore;
 import java.util.concurrent.TimeUnit;
 
+import connection.LineaSerie;
+
 
 
 public class House extends Observable{
@@ -19,7 +21,7 @@ public class House extends Observable{
 	Semaphore serialWriter; // hilo recibirCambioEnPlaca: recibir del serial y cambiar estado.
 	Semaphore serialReader; //hilo hacerCambiosEnPlaca: mandar por serial a placa el cambio.
 	ArrayList<Integer> changesIndex;
-
+	LineaSerie serial;
 	/*
 	 * Se guardarán todos los cambios
 	 * Se tendra que hacer una funcion para ver si se han efectuado cambios
@@ -27,7 +29,7 @@ public class House extends Observable{
 	 */
 	
 	
-	public House (int numActions) {
+	public House (int numActions, LineaSerie serial) {
 		changes = new ArrayList<Action>();
 		states = new boolean[numActions/2];
 		mutex = new Semaphore(1);
@@ -45,21 +47,24 @@ public class House extends Observable{
 		for(int i=0;i<changesIndex.size();i++){
 			changesIndex.set(i, 0);
 		}
+		this.serial=serial;
 	}
 	
 	public boolean saveAction () {
 		int ind, action, user;
-		String data[], infor;
+		String infor;
 		boolean state;
+		int data [] = new int[2];
 		
 		try {
-			mutex.acquire();
+			
 			serialReader.acquire();
-			//leer del serial la accion que le manda
-			infor = serial.receive();
-			data = infor.split("%");
-			action = Integer.parseInt(data[0]);
-			user = Integer.parseInt(data[1]);
+			mutex.acquire();
+			infor = serial.leer();
+			int inforInt=Integer.valueOf(infor);
+			data = interpretarInformacion(inforInt);
+			action = data[0];
+			user = data[1];
 			ind = action/2;
 			Calendar calendar = Calendar.getInstance();
 			long time =  calendar.getTimeInMillis();
@@ -72,34 +77,59 @@ public class House extends Observable{
 			changes.add(aux);
 			states[ind] = state;
 			notifyObservers();
-			mutex.release();
+			
 			serialReader.release();
 			for(int i=0;i<socketsReaders.size();i++){
 				socketsReaders.get(i).release();
 			}
+			
+			mutex.release();
 		} catch (InterruptedException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
 		return true; //DENA ONDO JOAN DELAKO
 	}
-	public boolean makeAction (int user, int action) {
-		int ind = action/2;
-		boolean state;
+	private int[] interpretarInformacion(int inforInt) {
+		// TODO Auto-generated method stub
+		int datos[] = new int[2];
+		String binary = "";
 		
+       while (inforInt > 0) {
+           int rem = inforInt % 2;
+           binary = rem + binary;
+           inforInt = inforInt / 2;
+       }
+       datos[0] = 0;
+       datos[1] = 0;
+       for(int j = 0; j <3; j++){//ultimos 3 bits para usuario
+    	   int valor=Integer.valueOf(binary.charAt(binary.length()-j-1))-48;
+    	   datos[1] = datos[1] + (int) ((valor)* Math.pow(2, j));
+       }
+       for(int k = 0; k<binary.length()-3; k++){
+    	   int valor = Integer.valueOf(binary.charAt(binary.length()-k-4))-48;
+    	   datos[0] = datos[0] + (int) ((valor)* Math.pow(2, k));
+       }
+      
+		return datos;
+	}
+
+	public boolean makeAction (int user, int action) {
+				
 		try {
-			mutex.acquire();
-			serialWriter.acquire();
-			//mandar por serial la accion que se quiere llevar a cabo
-			serial.send(user,action);
-			serialWriter.release();
 			
+			serialWriter.acquire();
+			mutex.acquire();
+			//mandar por serial la accion que se quiere llevar a cabo
+			//inversa de interpretar informacion
+			mutex.release();
+			serialWriter.release();
+		
 		} catch (InterruptedException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
-//		saveAction(user, action);
-		mutex.release();
+		
 		return true; //DENA ONDO JOAN DELAKO
 	}
 
@@ -107,11 +137,12 @@ public class House extends Observable{
 		int data[] = new int[3];
 		
 		try {
-			mutex.acquire();
+			
 			socketsReaders.get(user).acquire();
 //			while(changes.get(changesIndex.get(user)).user==user){
 //				changesIndex.set(user, (changesIndex.get(user)+1));
 //			}
+			mutex.acquire();
 			data[0] = changes.get(changesIndex.get(user)).action;
 			data[1] = changes.get(changesIndex.get(user)).user;
 			data[2] = (int) (changes.get(changesIndex.get(user)).time);
