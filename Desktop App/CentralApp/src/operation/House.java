@@ -13,6 +13,8 @@ import connection.LineaSerie;
 
 public class House extends Observable{
 
+	final static int USERBITS = 3;
+	final static int ACTIONBITS = 5;
 	boolean states[];
 	Semaphore mutex; 
 	ArrayList<Semaphore> socketsReaders; //hilos sockets leer a estado de la casa o a cambios, cada cliente un semaforo.
@@ -52,36 +54,39 @@ public class House extends Observable{
 	
 	public boolean saveAction () {
 		int ind, action, user;
-		String infor;
+		byte[] infor;
 		boolean state;
-		int data [] = new int[2];
+		short[] data = new short[2];
 		
 		try {
 			
 			serialReader.acquire();
 			mutex.acquire();
 			infor = serial.leer();
-			int inforInt=Integer.valueOf(infor);
-			data = interpretarInformacion(inforInt);
-			action = data[0];
-			user = data[1];
-			ind = action/2;
-			Calendar calendar = Calendar.getInstance();
-			long time =  calendar.getTimeInMillis();
-			Action aux = new Action(action, user, time);
-			if (action%2 == 1) {
-				state = false;
-			} else {
-				state = true;
+			for(int i = 0; i < infor.length; i++){
+				data = interpretarInformacion(infor[i]);
+				
+				action = data[1];
+				user = data[0];
+				ind = action/2;
+				Calendar calendar = Calendar.getInstance();
+				long time =  calendar.getTimeInMillis();
+				Action aux = new Action(action, user, time);
+				if (action%2 == 1) {
+					state = false;
+				} else {
+					state = true;
+				}
+				changes.add(aux);
+				states[ind] = state;
+				notifyObservers();
+				
+				for(int x=0;x<socketsReaders.size();x++){
+					socketsReaders.get(x).release();
+				}
 			}
-			changes.add(aux);
-			states[ind] = state;
-			notifyObservers();
 			
 			serialReader.release();
-			for(int i=0;i<socketsReaders.size();i++){
-				socketsReaders.get(i).release();
-			}
 			
 			mutex.release();
 		} catch (InterruptedException e) {
@@ -90,38 +95,97 @@ public class House extends Observable{
 		}
 		return true; //DENA ONDO JOAN DELAKO
 	}
-	private int[] interpretarInformacion(int inforInt) {
+	private short[] interpretarInformacion(short inforInt) {
 		// TODO Auto-generated method stub
-		int datos[] = new int[2];
-		String binary = "";
+		boolean bits[] = new boolean[8];
+		short divisor = 128;
+		short multiplicador = 1;
+		short accion = 0, usuario = 0;
+		short datos[] = new short[2];
 		
-       while (inforInt > 0) {
-           int rem = inforInt % 2;
-           binary = rem + binary;
-           inforInt = inforInt / 2;
-       }
-       datos[0] = 0;
-       datos[1] = 0;
-       for(int j = 0; j <3; j++){//ultimos 3 bits para usuario
-    	   int valor=Integer.valueOf(binary.charAt(binary.length()-j-1))-48;
-    	   datos[1] = datos[1] + (int) ((valor)* Math.pow(2, j));
-       }
-       for(int k = 0; k<binary.length()-3; k++){
-    	   int valor = Integer.valueOf(binary.charAt(binary.length()-k-4))-48;
-    	   datos[0] = datos[0] + (int) ((valor)* Math.pow(2, k));
-       }
-      
+		for (int i = 0; i < 8; i++){
+			if (inforInt/divisor > 0){
+				inforInt = (short) (inforInt - divisor);
+				divisor = (short)(divisor/2);
+				bits[i] = true;
+			} else {
+				divisor = (short) (divisor/2);
+				bits[i] = false;
+			}
+		}
+				
+		for (int i = 0; i < 5; i++){
+			if (bits[7 - i]){
+				accion = (short) (accion + multiplicador);
+			}
+			multiplicador = (short) (multiplicador*2);
+		}
+		
+		multiplicador = 1;
+		for (int i = 0; i < 3; i++){
+			if (bits[2 - i]){
+				usuario = (short) (usuario + multiplicador);
+			}
+			multiplicador = (short) (multiplicador*2);
+		}
+		datos[1] = accion;
+		datos[0] = usuario;
+	      
 		return datos;
 	}
+	private char generarInformacion(short[] data) {
+		// TODO Auto-generated method stub
+		boolean bits[] = new boolean [8];
+		short multiplicador;
+		short resultado = 0; 
+		short divisor = 4;
+		char caracter;
+		
+		for( int i= 0; i<3;i++){
+		
+			if((data[0]/divisor)>0){
+				data[0] = (short) (data[0] - divisor);
+				bits[i] = true;
+			}else{
+				bits[i] = false;
+			}
+			divisor = (short) (divisor/2);
+			
+		}
+		divisor = 16;
+		for(int i= 3; i<8;i++){
+			
+			if((data[1]/divisor)>0){
+				data[1] = (short) (data[1] - divisor);
+				bits[i] = true;
+			}else{
+				bits[i] = false;
+			}
+			divisor = (short) (divisor/2);
+			
+		}
+		
+		multiplicador = 1;
+		for(int i=7;i>=0;i--){
+			if(bits[i]){
+				resultado = (short) (resultado + multiplicador);
+			}
+			multiplicador = (short) (multiplicador*2);
+		}
+		caracter = (char) resultado;
+		return caracter;
+	}
 
-	public boolean makeAction (int user, int action) {
+	public boolean makeAction (short user, short action) {
 				
+		short[] data = new short[2];
+		data[0] = user;
+		data[1] = action;
 		try {
 			
 			serialWriter.acquire();
 			mutex.acquire();
-			//mandar por serial la accion que se quiere llevar a cabo
-			//inversa de interpretar informacion
+			generarInformacion(data);
 			mutex.release();
 			serialWriter.release();
 		

@@ -65,18 +65,19 @@ public class LineaSerie {
 	    }
 	}
 
-	public void escribir (String comando){
-		byte[] command;
+	public void escribir (char comando){
+		
 		try {
-			command=comando.getBytes();
-			output.write(command);
+			
+			output.write(comando);
 		} catch (IOException e) {
 			System.out.println("Error al enviar comando");
 		}
 	}
 
 
-	public String leer(){
+	public byte[] leer(){
+		
 		byte[] readBuffer=new byte[50];
 		int numBytes =0;
 
@@ -85,11 +86,11 @@ public class LineaSerie {
 	    		numBytes = input.read(readBuffer);
 	    	} 
 	    
-			String valor = new String(readBuffer,0,numBytes);
-			return valor;
+			//String valor = new String(readBuffer,0,numBytes);
+			return readBuffer;
 	    } catch (IOException e){
 	    	System.out.print("Error de evento \n");
-	    	return "ERROR al leer";
+	    	return null;
 	    }
 	}
 }
