@@ -1,0 +1,36 @@
+09:09:08 **** Incremental Build of configuration Debug for project AudioLoopback ****
+make all 
+'Building file: ../AudioLoopback.c'
+'Invoking: CrossCore Blackfin C/C++ Compiler'
+ccblkfn.exe -c -file-attr ProjectName="AudioLoopback" -proc ADSP-BF537 -flags-compiler --no_wrap_diagnostics -si-revision any -g -D_DEBUG -I"C:\Users\jonaz\Desktop\WS_EJEMPLO\AudioLoopback\system" -I"C:/Analog Devices/ADSP-BF537_EZKIT-Rel1.0.0/BF537_EZ-KIT_Lite/Blackfin/include" -I"C:\Analog Devices\CrossCore Embedded Studio 1.0.2\Blackfin\lib\src\libdsp" -structs-do-not-overlap -no-const-strings -no-multiline -warn-protos -double-size-32 -decls-strong -cplbs -sdram -gnu-style-dependencies -MD -Mo "AudioLoopback.d" -o "AudioLoopback.doj" "../AudioLoopback.c"
+"..\AudioLoopback.c", line 261: cc0167: {D} warning: argument of type "unsigned char **" is incompatible with parameter of type "void **const"
+  		respuestaRx=adi_uart_GetRxBuffer (hDevice, &UBufferJaso);//recibe
+  		                                           ^
+
+"..\AudioLoopback.c", line 288: cc0167: {D} warning: argument of type "unsigned char **" is incompatible with parameter of type "void **const"
+  		respuestaTx=adi_uart_GetTxBuffer (hDevice, &UBufferBidali);
+  		                                           ^
+
+The following serial numbers are due to expire:
+EVAL-CCES-UHNY-XX4H-Q2DJ-DVG4-VQDG-54ZM-NS01 expires in 2 days.
+
+[Warning ea1155]  The following serial numbers are due to expire:
+EVAL-CCES-UHNY-XX4H-Q2DJ-DVG4-VQDG-54ZM-NS01 expires in 2 days.
+
+
+Assembler totals: 0 error(s) and 1 warning(s)
+'Finished building: ../AudioLoopback.c'
+' '
+'Building target: AudioLoopback.dxe'
+'Invoking: CrossCore Blackfin Linker'
+ccblkfn.exe -proc ADSP-BF537 -si-revision any -TC:/Users/jonaz/Desktop/WS_EJEMPLO/AudioLoopback/system/startup_ldf/app.ldf -no-mem -LC:/Users/jonaz/Desktop/WS_EJEMPLO/AudioLoopback/Debug/system/startup_ldf -flags-link -MDDEBUG -flags-link -e -add-debug-libpaths -o AudioLoopback.dxe ./system/startup_ldf/Debug/AudioLoopback.dxe.doj  ./system/startup_ldf/app_cplbtab.doj ./system/startup_ldf/app_handler_table.doj ./system/startup_ldf/app_heaptab.doj ./system/startup_ldf/app_startup.doj  ./system/pinmux/GeneratedSources/pinmux_config.doj  ./system/BF537_EZ-KIT_Lite/drivers/dac/adi_ad1854.doj  ./system/BF537_EZ-KIT_Lite/drivers/adc/adi_ad1871.doj  ./system/adi_initialize.doj  ./.metadata/.plugins/org.eclipse.cdt.make.core/specs.doj  ./AudioLoopback.doj   ../system/startup_ldf/app.ldf  ../app.ldf   -flags-link -od,.\.
+
+[Informational li3140]  The following serial numbers are due to expire:
+EVAL-CCES-UHNY-XX4H-Q2DJ-DVG4-VQDG-54ZM-NS01 expires in 2 days.
+
+
+'Finished building target: AudioLoopback.dxe'
+' '
+
+09:09:09 Build Finished (took 1s.222ms)
+

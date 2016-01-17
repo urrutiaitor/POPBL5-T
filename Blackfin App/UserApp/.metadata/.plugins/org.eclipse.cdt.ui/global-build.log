@@ -1,0 +1,342 @@
+08:55:55 **** Build of configuration Debug for project AudioLoopback ****
+make all 
+'Building file: ../system/startup_ldf/Debug/AudioLoopback.dxe.asm'
+'Invoking: CrossCore Blackfin Assembler'
+easmblkfn.exe -file-attr ProjectName="AudioLoopback" -proc ADSP-BF537 -si-revision any -g -D_DEBUG -i"C:\Users\jonaz\Desktop\WS_EJEMPLO\AudioLoopback\system" -i"C:/Analog Devices/ADSP-BF537_EZKIT-Rel1.0.0/BF537_EZ-KIT_Lite/Blackfin/include" -gnu-style-dependencies -MM -Mo "system/startup_ldf/Debug/AudioLoopback.dxe.d" -o "system/startup_ldf/Debug/AudioLoopback.dxe.doj" "../system/startup_ldf/Debug/AudioLoopback.dxe.asm"
+[Warning ea1155]  The following serial numbers are due to expire:
+EVAL-CCES-UHNY-XX4H-Q2DJ-DVG4-VQDG-54ZM-NS01 expires in 2 days.
+
+
+Assembler totals: 0 error(s) and 1 warning(s)
+'Finished building: ../system/startup_ldf/Debug/AudioLoopback.dxe.asm'
+' '
+'Building file: ../system/startup_ldf/app_cplbtab.c'
+'Invoking: CrossCore Blackfin C/C++ Compiler'
+ccblkfn.exe -c -file-attr ProjectName="AudioLoopback" -proc ADSP-BF537 -flags-compiler --no_wrap_diagnostics -si-revision any -g -D_DEBUG -I"C:\Users\jonaz\Desktop\WS_EJEMPLO\AudioLoopback\system" -I"C:/Analog Devices/ADSP-BF537_EZKIT-Rel1.0.0/BF537_EZ-KIT_Lite/Blackfin/include" -I"C:\Analog Devices\CrossCore Embedded Studio 1.0.2\Blackfin\lib\src\libdsp" -structs-do-not-overlap -no-const-strings -no-multiline -warn-protos -double-size-32 -decls-strong -cplbs -sdram -gnu-style-dependencies -MD -Mo "system/startup_ldf/app_cplbtab.d" -o "system/startup_ldf/app_cplbtab.doj" "../system/startup_ldf/app_cplbtab.c"
+The following serial numbers are due to expire:
+EVAL-CCES-UHNY-XX4H-Q2DJ-DVG4-VQDG-54ZM-NS01 expires in 2 days.
+
+[Warning ea1155]  The following serial numbers are due to expire:
+EVAL-CCES-UHNY-XX4H-Q2DJ-DVG4-VQDG-54ZM-NS01 expires in 2 days.
+
+
+Assembler totals: 0 error(s) and 1 warning(s)
+'Finished building: ../system/startup_ldf/app_cplbtab.c'
+' '
+'Building file: ../system/startup_ldf/app_handler_table.c'
+'Invoking: CrossCore Blackfin C/C++ Compiler'
+ccblkfn.exe -c -file-attr ProjectName="AudioLoopback" -proc ADSP-BF537 -flags-compiler --no_wrap_diagnostics -si-revision any -g -D_DEBUG -I"C:\Users\jonaz\Desktop\WS_EJEMPLO\AudioLoopback\system" -I"C:/Analog Devices/ADSP-BF537_EZKIT-Rel1.0.0/BF537_EZ-KIT_Lite/Blackfin/include" -I"C:\Analog Devices\CrossCore Embedded Studio 1.0.2\Blackfin\lib\src\libdsp" -structs-do-not-overlap -no-const-strings -no-multiline -warn-protos -double-size-32 -decls-strong -cplbs -sdram -gnu-style-dependencies -MD -Mo "system/startup_ldf/app_cplbtab.d" -o "system/startup_ldf/app_handler_table.doj" "../system/startup_ldf/app_handler_table.c"
+The following serial numbers are due to expire:
+EVAL-CCES-UHNY-XX4H-Q2DJ-DVG4-VQDG-54ZM-NS01 expires in 2 days.
+
+[Warning ea1155]  The following serial numbers are due to expire:
+EVAL-CCES-UHNY-XX4H-Q2DJ-DVG4-VQDG-54ZM-NS01 expires in 2 days.
+
+
+Assembler totals: 0 error(s) and 1 warning(s)
+'Finished building: ../system/startup_ldf/app_handler_table.c'
+' '
+'Building file: ../system/startup_ldf/app_heaptab.c'
+'Invoking: CrossCore Blackfin C/C++ Compiler'
+ccblkfn.exe -c -file-attr ProjectName="AudioLoopback" -proc ADSP-BF537 -flags-compiler --no_wrap_diagnostics -si-revision any -g -D_DEBUG -I"C:\Users\jonaz\Desktop\WS_EJEMPLO\AudioLoopback\system" -I"C:/Analog Devices/ADSP-BF537_EZKIT-Rel1.0.0/BF537_EZ-KIT_Lite/Blackfin/include" -I"C:\Analog Devices\CrossCore Embedded Studio 1.0.2\Blackfin\lib\src\libdsp" -structs-do-not-overlap -no-const-strings -no-multiline -warn-protos -double-size-32 -decls-strong -cplbs -sdram -gnu-style-dependencies -MD -Mo "system/startup_ldf/app_cplbtab.d" -o "system/startup_ldf/app_heaptab.doj" "../system/startup_ldf/app_heaptab.c"
+The following serial numbers are due to expire:
+EVAL-CCES-UHNY-XX4H-Q2DJ-DVG4-VQDG-54ZM-NS01 expires in 2 days.
+
+[Warning ea1155]  The following serial numbers are due to expire:
+EVAL-CCES-UHNY-XX4H-Q2DJ-DVG4-VQDG-54ZM-NS01 expires in 2 days.
+
+
+Assembler totals: 0 error(s) and 1 warning(s)
+'Finished building: ../system/startup_ldf/app_heaptab.c'
+' '
+'Building file: ../system/startup_ldf/app_startup.s'
+'Invoking: CrossCore Blackfin Assembler'
+easmblkfn.exe -file-attr ProjectName="AudioLoopback" -proc ADSP-BF537 -si-revision any -g -D_DEBUG -i"C:\Users\jonaz\Desktop\WS_EJEMPLO\AudioLoopback\system" -i"C:/Analog Devices/ADSP-BF537_EZKIT-Rel1.0.0/BF537_EZ-KIT_Lite/Blackfin/include" -gnu-style-dependencies -MM -Mo "system/startup_ldf/app_startup.d" -o "system/startup_ldf/app_startup.doj" "../system/startup_ldf/app_startup.s"
+[Warning ea1155]  The following serial numbers are due to expire:
+EVAL-CCES-UHNY-XX4H-Q2DJ-DVG4-VQDG-54ZM-NS01 expires in 2 days.
+
+
+Assembler totals: 0 error(s) and 1 warning(s)
+'Finished building: ../system/startup_ldf/app_startup.s'
+' '
+'Building file: ../system/pinmux/GeneratedSources/pinmux_config.c'
+'Invoking: CrossCore Blackfin C/C++ Compiler'
+ccblkfn.exe -c -file-attr ProjectName="AudioLoopback" -proc ADSP-BF537 -flags-compiler --no_wrap_diagnostics -si-revision any -g -D_DEBUG -I"C:\Users\jonaz\Desktop\WS_EJEMPLO\AudioLoopback\system" -I"C:/Analog Devices/ADSP-BF537_EZKIT-Rel1.0.0/BF537_EZ-KIT_Lite/Blackfin/include" -I"C:\Analog Devices\CrossCore Embedded Studio 1.0.2\Blackfin\lib\src\libdsp" -structs-do-not-overlap -no-const-strings -no-multiline -warn-protos -double-size-32 -decls-strong -cplbs -sdram -gnu-style-dependencies -MD -Mo "system/pinmux/GeneratedSources/pinmux_config.d" -o "system/pinmux/GeneratedSources/pinmux_config.doj" "../system/pinmux/GeneratedSources/pinmux_config.c"
+The following serial numbers are due to expire:
+EVAL-CCES-UHNY-XX4H-Q2DJ-DVG4-VQDG-54ZM-NS01 expires in 2 days.
+
+[Warning ea1155]  The following serial numbers are due to expire:
+EVAL-CCES-UHNY-XX4H-Q2DJ-DVG4-VQDG-54ZM-NS01 expires in 2 days.
+
+
+Assembler totals: 0 error(s) and 1 warning(s)
+'Finished building: ../system/pinmux/GeneratedSources/pinmux_config.c'
+' '
+'Building file: C:/Analog Devices/ADSP-BF537_EZKIT-Rel1.0.0/BF537_EZ-KIT_Lite/Blackfin/src/drivers/dac/ad1854/adi_ad1854.c'
+'Invoking: CrossCore Blackfin C/C++ Compiler'
+ccblkfn.exe -c -file-attr ProjectName="AudioLoopback" -proc ADSP-BF537 -flags-compiler --no_wrap_diagnostics -si-revision any -g -D_DEBUG -I"C:\Users\jonaz\Desktop\WS_EJEMPLO\AudioLoopback\system" -I"C:/Analog Devices/ADSP-BF537_EZKIT-Rel1.0.0/BF537_EZ-KIT_Lite/Blackfin/include" -I"C:\Analog Devices\CrossCore Embedded Studio 1.0.2\Blackfin\lib\src\libdsp" -structs-do-not-overlap -no-const-strings -no-multiline -warn-protos -double-size-32 -decls-strong -cplbs -sdram -gnu-style-dependencies -MD -Mo "system/BF537_EZ-KIT_Lite/drivers/dac/adi_ad1854.d" -o "system/BF537_EZ-KIT_Lite/drivers/dac/adi_ad1854.doj" "C:/Analog Devices/ADSP-BF537_EZKIT-Rel1.0.0/BF537_EZ-KIT_Lite/Blackfin/src/drivers/dac/ad1854/adi_ad1854.c"
+The following serial numbers are due to expire:
+EVAL-CCES-UHNY-XX4H-Q2DJ-DVG4-VQDG-54ZM-NS01 expires in 2 days.
+
+[Warning ea1155]  The following serial numbers are due to expire:
+EVAL-CCES-UHNY-XX4H-Q2DJ-DVG4-VQDG-54ZM-NS01 expires in 2 days.
+
+
+Assembler totals: 0 error(s) and 1 warning(s)
+'Finished building: C:/Analog Devices/ADSP-BF537_EZKIT-Rel1.0.0/BF537_EZ-KIT_Lite/Blackfin/src/drivers/dac/ad1854/adi_ad1854.c'
+' '
+'Building file: C:/Analog Devices/ADSP-BF537_EZKIT-Rel1.0.0/BF537_EZ-KIT_Lite/Blackfin/src/drivers/adc/ad1871/adi_ad1871.c'
+'Invoking: CrossCore Blackfin C/C++ Compiler'
+ccblkfn.exe -c -file-attr ProjectName="AudioLoopback" -proc ADSP-BF537 -flags-compiler --no_wrap_diagnostics -si-revision any -g -D_DEBUG -I"C:\Users\jonaz\Desktop\WS_EJEMPLO\AudioLoopback\system" -I"C:/Analog Devices/ADSP-BF537_EZKIT-Rel1.0.0/BF537_EZ-KIT_Lite/Blackfin/include" -I"C:\Analog Devices\CrossCore Embedded Studio 1.0.2\Blackfin\lib\src\libdsp" -structs-do-not-overlap -no-const-strings -no-multiline -warn-protos -double-size-32 -decls-strong -cplbs -sdram -gnu-style-dependencies -MD -Mo "system/BF537_EZ-KIT_Lite/drivers/adc/adi_ad1871.d" -o "system/BF537_EZ-KIT_Lite/drivers/adc/adi_ad1871.doj" "C:/Analog Devices/ADSP-BF537_EZKIT-Rel1.0.0/BF537_EZ-KIT_Lite/Blackfin/src/drivers/adc/ad1871/adi_ad1871.c"
+The following serial numbers are due to expire:
+EVAL-CCES-UHNY-XX4H-Q2DJ-DVG4-VQDG-54ZM-NS01 expires in 2 days.
+
+[Warning ea1155]  The following serial numbers are due to expire:
+EVAL-CCES-UHNY-XX4H-Q2DJ-DVG4-VQDG-54ZM-NS01 expires in 2 days.
+
+
+Assembler totals: 0 error(s) and 1 warning(s)
+'Finished building: C:/Analog Devices/ADSP-BF537_EZKIT-Rel1.0.0/BF537_EZ-KIT_Lite/Blackfin/src/drivers/adc/ad1871/adi_ad1871.c'
+' '
+'Building file: ../system/adi_initialize.c'
+'Invoking: CrossCore Blackfin C/C++ Compiler'
+ccblkfn.exe -c -file-attr ProjectName="AudioLoopback" -proc ADSP-BF537 -flags-compiler --no_wrap_diagnostics -si-revision any -g -D_DEBUG -I"C:\Users\jonaz\Desktop\WS_EJEMPLO\AudioLoopback\system" -I"C:/Analog Devices/ADSP-BF537_EZKIT-Rel1.0.0/BF537_EZ-KIT_Lite/Blackfin/include" -I"C:\Analog Devices\CrossCore Embedded Studio 1.0.2\Blackfin\lib\src\libdsp" -structs-do-not-overlap -no-const-strings -no-multiline -warn-protos -double-size-32 -decls-strong -cplbs -sdram -gnu-style-dependencies -MD -Mo "system/adi_initialize.d" -o "system/adi_initialize.doj" "../system/adi_initialize.c"
+The following serial numbers are due to expire:
+EVAL-CCES-UHNY-XX4H-Q2DJ-DVG4-VQDG-54ZM-NS01 expires in 2 days.
+
+[Warning ea1155]  The following serial numbers are due to expire:
+EVAL-CCES-UHNY-XX4H-Q2DJ-DVG4-VQDG-54ZM-NS01 expires in 2 days.
+
+
+Assembler totals: 0 error(s) and 1 warning(s)
+'Finished building: ../system/adi_initialize.c'
+' '
+'Building file: ../.metadata/.plugins/org.eclipse.cdt.make.core/specs.c'
+'Invoking: CrossCore Blackfin C/C++ Compiler'
+ccblkfn.exe -c -file-attr ProjectName="AudioLoopback" -proc ADSP-BF537 -flags-compiler --no_wrap_diagnostics -si-revision any -g -D_DEBUG -I"C:\Users\jonaz\Desktop\WS_EJEMPLO\AudioLoopback\system" -I"C:/Analog Devices/ADSP-BF537_EZKIT-Rel1.0.0/BF537_EZ-KIT_Lite/Blackfin/include" -I"C:\Analog Devices\CrossCore Embedded Studio 1.0.2\Blackfin\lib\src\libdsp" -structs-do-not-overlap -no-const-strings -no-multiline -warn-protos -double-size-32 -decls-strong -cplbs -sdram -gnu-style-dependencies -MD -Mo ".metadata/.plugins/org.eclipse.cdt.make.core/specs.d" -o ".metadata/.plugins/org.eclipse.cdt.make.core/specs.doj" "../.metadata/.plugins/org.eclipse.cdt.make.core/specs.c"
+At end of source: cc0096: {D} warning: a translation unit must contain at least one declaration
+The following serial numbers are due to expire:
+
+EVAL-CCES-UHNY-XX4H-Q2DJ-DVG4-VQDG-54ZM-NS01 expires in 2 days.
+
+[Warning ea1155]  The following serial numbers are due to expire:
+EVAL-CCES-UHNY-XX4H-Q2DJ-DVG4-VQDG-54ZM-NS01 expires in 2 days.
+
+
+Assembler totals: 0 error(s) and 1 warning(s)
+'Finished building: ../.metadata/.plugins/org.eclipse.cdt.make.core/specs.c'
+' '
+'Building file: ../AudioLoopback.c'
+'Invoking: CrossCore Blackfin C/C++ Compiler'
+ccblkfn.exe -c -file-attr ProjectName="AudioLoopback" -proc ADSP-BF537 -flags-compiler --no_wrap_diagnostics -si-revision any -g -D_DEBUG -I"C:\Users\jonaz\Desktop\WS_EJEMPLO\AudioLoopback\system" -I"C:/Analog Devices/ADSP-BF537_EZKIT-Rel1.0.0/BF537_EZ-KIT_Lite/Blackfin/include" -I"C:\Analog Devices\CrossCore Embedded Studio 1.0.2\Blackfin\lib\src\libdsp" -structs-do-not-overlap -no-const-strings -no-multiline -warn-protos -double-size-32 -decls-strong -cplbs -sdram -gnu-style-dependencies -MD -Mo "AudioLoopback.d" -o "AudioLoopback.doj" "../AudioLoopback.c"
+"..\AudioLoopback.c", line 257: cc0167: {D} warning: argument of type "unsigned char **" is incompatible with parameter of type "void **const"
+  		respuestaRx=adi_uart_GetRxBuffer (hDevice, &UBufferJaso);//recibe
+  		                                           ^
+
+"..\AudioLoopback.c", line 284: cc0167: {D} warning: argument of type "unsigned char **" is incompatible with parameter of type "void **const"
+  		respuestaTx=adi_uart_GetTxBuffer (hDevice, &UBufferBidali);
+  		                                           ^
+
+The following serial numbers are due to expire:
+EVAL-CCES-UHNY-XX4H-Q2DJ-DVG4-VQDG-54ZM-NS01 expires in 2 days.
+
+[Warning ea1155]  The following serial numbers are due to expire:
+EVAL-CCES-UHNY-XX4H-Q2DJ-DVG4-VQDG-54ZM-NS01 expires in 2 days.
+
+
+Assembler totals: 0 error(s) and 1 warning(s)
+'Finished building: ../AudioLoopback.c'
+' '
+'Building target: AudioLoopback.dxe'
+'Invoking: CrossCore Blackfin Linker'
+ccblkfn.exe -proc ADSP-BF537 -si-revision any -TC:/Users/jonaz/Desktop/WS_EJEMPLO/AudioLoopback/system/startup_ldf/app.ldf -no-mem -LC:/Users/jonaz/Desktop/WS_EJEMPLO/AudioLoopback/Debug/system/startup_ldf -flags-link -MDDEBUG -flags-link -e -add-debug-libpaths -o AudioLoopback.dxe ./system/startup_ldf/Debug/AudioLoopback.dxe.doj  ./system/startup_ldf/app_cplbtab.doj ./system/startup_ldf/app_handler_table.doj ./system/startup_ldf/app_heaptab.doj ./system/startup_ldf/app_startup.doj  ./system/pinmux/GeneratedSources/pinmux_config.doj  ./system/BF537_EZ-KIT_Lite/drivers/dac/adi_ad1854.doj  ./system/BF537_EZ-KIT_Lite/drivers/adc/adi_ad1871.doj  ./system/adi_initialize.doj  ./.metadata/.plugins/org.eclipse.cdt.make.core/specs.doj  ./AudioLoopback.doj   ../system/startup_ldf/app.ldf  ../app.ldf   -flags-link -od,.\.
+
+[Informational li3140]  The following serial numbers are due to expire:
+EVAL-CCES-UHNY-XX4H-Q2DJ-DVG4-VQDG-54ZM-NS01 expires in 2 days.
+
+
+'Finished building target: AudioLoopback.dxe'
+' '
+08:56:05 **** Incremental Build of configuration Debug for project AudioLoopback ****
+make all 
+make: Nothing to be done for `all'.
+08:58:04 **** Incremental Build of configuration Debug for project AudioLoopback ****
+make all 
+make: Nothing to be done for `all'.
+08:59:17 **** Incremental Build of configuration Debug for project AudioLoopback ****
+make all 
+make: Nothing to be done for `all'.
+09:00:34 **** Incremental Build of configuration Debug for project AudioLoopback ****
+make all 
+make: Nothing to be done for `all'.
+09:03:06 **** Incremental Build of configuration Debug for project AudioLoopback ****
+make all 
+'Building file: ../AudioLoopback.c'
+'Invoking: CrossCore Blackfin C/C++ Compiler'
+ccblkfn.exe -c -file-attr ProjectName="AudioLoopback" -proc ADSP-BF537 -flags-compiler --no_wrap_diagnostics -si-revision any -g -D_DEBUG -I"C:\Users\jonaz\Desktop\WS_EJEMPLO\AudioLoopback\system" -I"C:/Analog Devices/ADSP-BF537_EZKIT-Rel1.0.0/BF537_EZ-KIT_Lite/Blackfin/include" -I"C:\Analog Devices\CrossCore Embedded Studio 1.0.2\Blackfin\lib\src\libdsp" -structs-do-not-overlap -no-const-strings -no-multiline -warn-protos -double-size-32 -decls-strong -cplbs -sdram -gnu-style-dependencies -MD -Mo "AudioLoopback.d" -o "AudioLoopback.doj" "../AudioLoopback.c"
+"..\AudioLoopback.c", line 257: cc0167: {D} warning: argument of type "unsigned char **" is incompatible with parameter of type "void **const"
+  		respuestaRx=adi_uart_GetRxBuffer (hDevice, &UBufferJaso);//recibe
+  		                                           ^
+
+"..\AudioLoopback.c", line 284: cc0167: {D} warning: argument of type "unsigned char **" is incompatible with parameter of type "void **const"
+  		respuestaTx=adi_uart_GetTxBuffer (hDevice, &UBufferBidali);
+  		                                           ^
+
+The following serial numbers are due to expire:
+EVAL-CCES-UHNY-XX4H-Q2DJ-DVG4-VQDG-54ZM-NS01 expires in 2 days.
+
+[Warning ea1155]  The following serial numbers are due to expire:
+EVAL-CCES-UHNY-XX4H-Q2DJ-DVG4-VQDG-54ZM-NS01 expires in 2 days.
+
+
+Assembler totals: 0 error(s) and 1 warning(s)
+'Finished building: ../AudioLoopback.c'
+' '
+'Building target: AudioLoopback.dxe'
+'Invoking: CrossCore Blackfin Linker'
+ccblkfn.exe -proc ADSP-BF537 -si-revision any -TC:/Users/jonaz/Desktop/WS_EJEMPLO/AudioLoopback/system/startup_ldf/app.ldf -no-mem -LC:/Users/jonaz/Desktop/WS_EJEMPLO/AudioLoopback/Debug/system/startup_ldf -flags-link -MDDEBUG -flags-link -e -add-debug-libpaths -o AudioLoopback.dxe ./system/startup_ldf/Debug/AudioLoopback.dxe.doj  ./system/startup_ldf/app_cplbtab.doj ./system/startup_ldf/app_handler_table.doj ./system/startup_ldf/app_heaptab.doj ./system/startup_ldf/app_startup.doj  ./system/pinmux/GeneratedSources/pinmux_config.doj  ./system/BF537_EZ-KIT_Lite/drivers/dac/adi_ad1854.doj  ./system/BF537_EZ-KIT_Lite/drivers/adc/adi_ad1871.doj  ./system/adi_initialize.doj  ./.metadata/.plugins/org.eclipse.cdt.make.core/specs.doj  ./AudioLoopback.doj   ../system/startup_ldf/app.ldf  ../app.ldf   -flags-link -od,.\.
+
+[Informational li3140]  The following serial numbers are due to expire:
+EVAL-CCES-UHNY-XX4H-Q2DJ-DVG4-VQDG-54ZM-NS01 expires in 2 days.
+
+
+'Finished building target: AudioLoopback.dxe'
+' '
+09:03:49 **** Incremental Build of configuration Debug for project AudioLoopback ****
+make all 
+'Building file: ../AudioLoopback.c'
+'Invoking: CrossCore Blackfin C/C++ Compiler'
+ccblkfn.exe -c -file-attr ProjectName="AudioLoopback" -proc ADSP-BF537 -flags-compiler --no_wrap_diagnostics -si-revision any -g -D_DEBUG -I"C:\Users\jonaz\Desktop\WS_EJEMPLO\AudioLoopback\system" -I"C:/Analog Devices/ADSP-BF537_EZKIT-Rel1.0.0/BF537_EZ-KIT_Lite/Blackfin/include" -I"C:\Analog Devices\CrossCore Embedded Studio 1.0.2\Blackfin\lib\src\libdsp" -structs-do-not-overlap -no-const-strings -no-multiline -warn-protos -double-size-32 -decls-strong -cplbs -sdram -gnu-style-dependencies -MD -Mo "AudioLoopback.d" -o "AudioLoopback.doj" "../AudioLoopback.c"
+"..\AudioLoopback.c", line 258: cc0167: {D} warning: argument of type "unsigned char **" is incompatible with parameter of type "void **const"
+  		respuestaRx=adi_uart_GetRxBuffer (hDevice, &UBufferJaso);//recibe
+  		                                           ^
+
+"..\AudioLoopback.c", line 285: cc0167: {D} warning: argument of type "unsigned char **" is incompatible with parameter of type "void **const"
+  		respuestaTx=adi_uart_GetTxBuffer (hDevice, &UBufferBidali);
+  		                                           ^
+
+The following serial numbers are due to expire:
+EVAL-CCES-UHNY-XX4H-Q2DJ-DVG4-VQDG-54ZM-NS01 expires in 2 days.
+
+[Warning ea1155]  The following serial numbers are due to expire:
+EVAL-CCES-UHNY-XX4H-Q2DJ-DVG4-VQDG-54ZM-NS01 expires in 2 days.
+
+
+Assembler totals: 0 error(s) and 1 warning(s)
+'Finished building: ../AudioLoopback.c'
+' '
+'Building target: AudioLoopback.dxe'
+'Invoking: CrossCore Blackfin Linker'
+ccblkfn.exe -proc ADSP-BF537 -si-revision any -TC:/Users/jonaz/Desktop/WS_EJEMPLO/AudioLoopback/system/startup_ldf/app.ldf -no-mem -LC:/Users/jonaz/Desktop/WS_EJEMPLO/AudioLoopback/Debug/system/startup_ldf -flags-link -MDDEBUG -flags-link -e -add-debug-libpaths -o AudioLoopback.dxe ./system/startup_ldf/Debug/AudioLoopback.dxe.doj  ./system/startup_ldf/app_cplbtab.doj ./system/startup_ldf/app_handler_table.doj ./system/startup_ldf/app_heaptab.doj ./system/startup_ldf/app_startup.doj  ./system/pinmux/GeneratedSources/pinmux_config.doj  ./system/BF537_EZ-KIT_Lite/drivers/dac/adi_ad1854.doj  ./system/BF537_EZ-KIT_Lite/drivers/adc/adi_ad1871.doj  ./system/adi_initialize.doj  ./.metadata/.plugins/org.eclipse.cdt.make.core/specs.doj  ./AudioLoopback.doj   ../system/startup_ldf/app.ldf  ../app.ldf   -flags-link -od,.\.
+
+[Informational li3140]  The following serial numbers are due to expire:
+EVAL-CCES-UHNY-XX4H-Q2DJ-DVG4-VQDG-54ZM-NS01 expires in 2 days.
+
+
+'Finished building target: AudioLoopback.dxe'
+' '
+09:04:33 **** Incremental Build of configuration Debug for project AudioLoopback ****
+make all 
+'Building file: ../AudioLoopback.c'
+'Invoking: CrossCore Blackfin C/C++ Compiler'
+ccblkfn.exe -c -file-attr ProjectName="AudioLoopback" -proc ADSP-BF537 -flags-compiler --no_wrap_diagnostics -si-revision any -g -D_DEBUG -I"C:\Users\jonaz\Desktop\WS_EJEMPLO\AudioLoopback\system" -I"C:/Analog Devices/ADSP-BF537_EZKIT-Rel1.0.0/BF537_EZ-KIT_Lite/Blackfin/include" -I"C:\Analog Devices\CrossCore Embedded Studio 1.0.2\Blackfin\lib\src\libdsp" -structs-do-not-overlap -no-const-strings -no-multiline -warn-protos -double-size-32 -decls-strong -cplbs -sdram -gnu-style-dependencies -MD -Mo "AudioLoopback.d" -o "AudioLoopback.doj" "../AudioLoopback.c"
+"..\AudioLoopback.c", line 258: cc0167: {D} warning: argument of type "unsigned char **" is incompatible with parameter of type "void **const"
+  		respuestaRx=adi_uart_GetRxBuffer (hDevice, &UBufferJaso);//recibe
+  		                                           ^
+
+"..\AudioLoopback.c", line 285: cc0167: {D} warning: argument of type "unsigned char **" is incompatible with parameter of type "void **const"
+  		respuestaTx=adi_uart_GetTxBuffer (hDevice, &UBufferBidali);
+  		                                           ^
+
+The following serial numbers are due to expire:
+EVAL-CCES-UHNY-XX4H-Q2DJ-DVG4-VQDG-54ZM-NS01 expires in 2 days.
+
+[Warning ea1155]  The following serial numbers are due to expire:
+EVAL-CCES-UHNY-XX4H-Q2DJ-DVG4-VQDG-54ZM-NS01 expires in 2 days.
+
+
+Assembler totals: 0 error(s) and 1 warning(s)
+'Finished building: ../AudioLoopback.c'
+' '
+'Building target: AudioLoopback.dxe'
+'Invoking: CrossCore Blackfin Linker'
+ccblkfn.exe -proc ADSP-BF537 -si-revision any -TC:/Users/jonaz/Desktop/WS_EJEMPLO/AudioLoopback/system/startup_ldf/app.ldf -no-mem -LC:/Users/jonaz/Desktop/WS_EJEMPLO/AudioLoopback/Debug/system/startup_ldf -flags-link -MDDEBUG -flags-link -e -add-debug-libpaths -o AudioLoopback.dxe ./system/startup_ldf/Debug/AudioLoopback.dxe.doj  ./system/startup_ldf/app_cplbtab.doj ./system/startup_ldf/app_handler_table.doj ./system/startup_ldf/app_heaptab.doj ./system/startup_ldf/app_startup.doj  ./system/pinmux/GeneratedSources/pinmux_config.doj  ./system/BF537_EZ-KIT_Lite/drivers/dac/adi_ad1854.doj  ./system/BF537_EZ-KIT_Lite/drivers/adc/adi_ad1871.doj  ./system/adi_initialize.doj  ./.metadata/.plugins/org.eclipse.cdt.make.core/specs.doj  ./AudioLoopback.doj   ../system/startup_ldf/app.ldf  ../app.ldf   -flags-link -od,.\.
+
+[Informational li3140]  The following serial numbers are due to expire:
+EVAL-CCES-UHNY-XX4H-Q2DJ-DVG4-VQDG-54ZM-NS01 expires in 2 days.
+
+
+'Finished building target: AudioLoopback.dxe'
+' '
+09:06:16 **** Incremental Build of configuration Debug for project AudioLoopback ****
+make all 
+make: Nothing to be done for `all'.
+09:07:09 **** Incremental Build of configuration Debug for project AudioLoopback ****
+make all 
+'Building file: ../AudioLoopback.c'
+'Invoking: CrossCore Blackfin C/C++ Compiler'
+ccblkfn.exe -c -file-attr ProjectName="AudioLoopback" -proc ADSP-BF537 -flags-compiler --no_wrap_diagnostics -si-revision any -g -D_DEBUG -I"C:\Users\jonaz\Desktop\WS_EJEMPLO\AudioLoopback\system" -I"C:/Analog Devices/ADSP-BF537_EZKIT-Rel1.0.0/BF537_EZ-KIT_Lite/Blackfin/include" -I"C:\Analog Devices\CrossCore Embedded Studio 1.0.2\Blackfin\lib\src\libdsp" -structs-do-not-overlap -no-const-strings -no-multiline -warn-protos -double-size-32 -decls-strong -cplbs -sdram -gnu-style-dependencies -MD -Mo "AudioLoopback.d" -o "AudioLoopback.doj" "../AudioLoopback.c"
+"..\AudioLoopback.c", line 258: cc0167: {D} warning: argument of type "unsigned char **" is incompatible with parameter of type "void **const"
+  		respuestaRx=adi_uart_GetRxBuffer (hDevice, &UBufferJaso);//recibe
+  		                                           ^
+
+"..\AudioLoopback.c", line 285: cc0167: {D} warning: argument of type "unsigned char **" is incompatible with parameter of type "void **const"
+  		respuestaTx=adi_uart_GetTxBuffer (hDevice, &UBufferBidali);
+  		                                           ^
+
+The following serial numbers are due to expire:
+EVAL-CCES-UHNY-XX4H-Q2DJ-DVG4-VQDG-54ZM-NS01 expires in 2 days.
+
+[Warning ea1155]  The following serial numbers are due to expire:
+EVAL-CCES-UHNY-XX4H-Q2DJ-DVG4-VQDG-54ZM-NS01 expires in 2 days.
+
+
+Assembler totals: 0 error(s) and 1 warning(s)
+'Finished building: ../AudioLoopback.c'
+' '
+'Building target: AudioLoopback.dxe'
+'Invoking: CrossCore Blackfin Linker'
+ccblkfn.exe -proc ADSP-BF537 -si-revision any -TC:/Users/jonaz/Desktop/WS_EJEMPLO/AudioLoopback/system/startup_ldf/app.ldf -no-mem -LC:/Users/jonaz/Desktop/WS_EJEMPLO/AudioLoopback/Debug/system/startup_ldf -flags-link -MDDEBUG -flags-link -e -add-debug-libpaths -o AudioLoopback.dxe ./system/startup_ldf/Debug/AudioLoopback.dxe.doj  ./system/startup_ldf/app_cplbtab.doj ./system/startup_ldf/app_handler_table.doj ./system/startup_ldf/app_heaptab.doj ./system/startup_ldf/app_startup.doj  ./system/pinmux/GeneratedSources/pinmux_config.doj  ./system/BF537_EZ-KIT_Lite/drivers/dac/adi_ad1854.doj  ./system/BF537_EZ-KIT_Lite/drivers/adc/adi_ad1871.doj  ./system/adi_initialize.doj  ./.metadata/.plugins/org.eclipse.cdt.make.core/specs.doj  ./AudioLoopback.doj   ../system/startup_ldf/app.ldf  ../app.ldf   -flags-link -od,.\.
+
+[Informational li3140]  The following serial numbers are due to expire:
+EVAL-CCES-UHNY-XX4H-Q2DJ-DVG4-VQDG-54ZM-NS01 expires in 2 days.
+
+
+'Finished building target: AudioLoopback.dxe'
+' '
+09:07:34 **** Incremental Build of configuration Debug for project AudioLoopback ****
+make all 
+make: Nothing to be done for `all'.
+09:09:08 **** Incremental Build of configuration Debug for project AudioLoopback ****
+make all 
+'Building file: ../AudioLoopback.c'
+'Invoking: CrossCore Blackfin C/C++ Compiler'
+ccblkfn.exe -c -file-attr ProjectName="AudioLoopback" -proc ADSP-BF537 -flags-compiler --no_wrap_diagnostics -si-revision any -g -D_DEBUG -I"C:\Users\jonaz\Desktop\WS_EJEMPLO\AudioLoopback\system" -I"C:/Analog Devices/ADSP-BF537_EZKIT-Rel1.0.0/BF537_EZ-KIT_Lite/Blackfin/include" -I"C:\Analog Devices\CrossCore Embedded Studio 1.0.2\Blackfin\lib\src\libdsp" -structs-do-not-overlap -no-const-strings -no-multiline -warn-protos -double-size-32 -decls-strong -cplbs -sdram -gnu-style-dependencies -MD -Mo "AudioLoopback.d" -o "AudioLoopback.doj" "../AudioLoopback.c"
+"..\AudioLoopback.c", line 261: cc0167: {D} warning: argument of type "unsigned char **" is incompatible with parameter of type "void **const"
+  		respuestaRx=adi_uart_GetRxBuffer (hDevice, &UBufferJaso);//recibe
+  		                                           ^
+
+"..\AudioLoopback.c", line 288: cc0167: {D} warning: argument of type "unsigned char **" is incompatible with parameter of type "void **const"
+  		respuestaTx=adi_uart_GetTxBuffer (hDevice, &UBufferBidali);
+  		                                           ^
+
+The following serial numbers are due to expire:
+EVAL-CCES-UHNY-XX4H-Q2DJ-DVG4-VQDG-54ZM-NS01 expires in 2 days.
+
+[Warning ea1155]  The following serial numbers are due to expire:
+EVAL-CCES-UHNY-XX4H-Q2DJ-DVG4-VQDG-54ZM-NS01 expires in 2 days.
+
+
+Assembler totals: 0 error(s) and 1 warning(s)
+'Finished building: ../AudioLoopback.c'
+' '
+'Building target: AudioLoopback.dxe'
+'Invoking: CrossCore Blackfin Linker'
+ccblkfn.exe -proc ADSP-BF537 -si-revision any -TC:/Users/jonaz/Desktop/WS_EJEMPLO/AudioLoopback/system/startup_ldf/app.ldf -no-mem -LC:/Users/jonaz/Desktop/WS_EJEMPLO/AudioLoopback/Debug/system/startup_ldf -flags-link -MDDEBUG -flags-link -e -add-debug-libpaths -o AudioLoopback.dxe ./system/startup_ldf/Debug/AudioLoopback.dxe.doj  ./system/startup_ldf/app_cplbtab.doj ./system/startup_ldf/app_handler_table.doj ./system/startup_ldf/app_heaptab.doj ./system/startup_ldf/app_startup.doj  ./system/pinmux/GeneratedSources/pinmux_config.doj  ./system/BF537_EZ-KIT_Lite/drivers/dac/adi_ad1854.doj  ./system/BF537_EZ-KIT_Lite/drivers/adc/adi_ad1871.doj  ./system/adi_initialize.doj  ./.metadata/.plugins/org.eclipse.cdt.make.core/specs.doj  ./AudioLoopback.doj   ../system/startup_ldf/app.ldf  ../app.ldf   -flags-link -od,.\.
+
+[Informational li3140]  The following serial numbers are due to expire:
+EVAL-CCES-UHNY-XX4H-Q2DJ-DVG4-VQDG-54ZM-NS01 expires in 2 days.
+
+
+'Finished building target: AudioLoopback.dxe'
+' '

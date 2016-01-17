@@ -1,0 +1,408 @@
+Session started on Monday December 14, 2015 09:09:09AM (Hora estándar romance)
+
+EnableCustomBoardSupport()
+  [I] enable: 0
+  [I] processorType: ADSP-BF537
+  [I] fileName: 
+  [T] 0.00004 seconds
+ConnectWithOptions()
+  [I] Target: Blackfin Emulators/EZ-KIT Lites
+  [I] Platform: ADSP-BF537 EZ-KIT Lite via Debug Agent
+  [I] Processor: ADSP-BF537
+  [I] ProcId: 0 Properties 1
+
+>> StateChange()
+  [I] State: Running
+  [I] Reason: Client Request
+  [I] ProcId: 0
+
+>> StateChange()
+  [I] State: Halted
+  [I] Reason: Client Request
+  [I] ProcId: 0
+  [T] 3.49805 seconds
+Reset()
+  [I] ProcId: 0
+  [I] Wait: 1
+
+>> StateChange()
+  [I] State: Reset
+  [I] Reason: Client Request
+  [I] ProcId: 0
+
+>> StateChange()
+  [I] State: Halted
+  [I] Reason: Client Request
+  [I] ProcId: 0
+  [T] 0.38313 seconds
+GetProcessorType()
+  [I] procId: 0
+  [O] Processor Type:: ADSP-BF537
+  [T] 0.00002 seconds
+GetSiliconRevision()
+  [I] procId: 0
+  [O] Silicon Revision:: 0.3
+  [T] 0.00002 seconds
+GetProcessorType()
+  [I] FileName: C:\Users\jonaz\Desktop\WS_EJEMPLO\AudioLoopback\Debug\AudioLoopback.dxe
+  [O] Processor Type: ADSP-BF537
+  [T] 0.00068 seconds
+GetProgramInfo()
+  [I] FileName: C:\Users\jonaz\Desktop\WS_EJEMPLO\AudioLoopback\Debug\AudioLoopback.dxe
+  [O] Toolchain: 3
+  [O] Architecture: Blackfin
+  [O] Processor Type: ADSP-BF537
+  [O] Entry Address: ffa00000
+  [O] Silicon Revision: any
+  [T] 0.00052 seconds
+LoadProgramWithOptions()
+  [I] ProcId: 0
+  [I] FileName: C:\Users\jonaz\Desktop\WS_EJEMPLO\AudioLoopback\Debug\AudioLoopback.dxe
+  [I] Properties: 2
+  [I] WorkingDirectory: 
+  [T] 1.70545 seconds
+GetProgramInfo()
+  [I] FileName: C:\Users\jonaz\Desktop\WS_EJEMPLO\AudioLoopback\Debug\AudioLoopback.dxe
+  [O] Toolchain: 3
+  [O] Architecture: Blackfin
+  [O] Processor Type: ADSP-BF537
+  [O] Entry Address: ffa00000
+  [O] Silicon Revision: any
+  [T] 0.00100 seconds
+RemoveAllBreakpoints()
+  [I] ProcId: 0
+  [T] 0.00007 seconds
+SetBreakpointAtSymbol()
+  [I] ProcId: 0
+  [I] Symbol: __fatal_exception
+  [I] Type: 0
+  [I] SkipCount: 0
+  [I] Expression: 
+  [I] Temporary: 0
+  [I] Enabled: 1
+  [T] 0.00820 seconds
+SetBreakpointAtSymbol()
+  [I] ProcId: 0
+  [I] Symbol: __primIO
+  [I] Type: 1
+  [I] SkipCount: 0
+  [I] Expression: 
+  [I] Temporary: 0
+  [I] Enabled: 1
+  [T] 0.00765 seconds
+SetBreakpointAtSymbol()
+  [I] ProcId: 0
+  [I] Symbol: __ov_end
+  [I] Type: 1
+  [I] SkipCount: 0
+  [I] Expression: 
+  [I] Temporary: 0
+  [I] Enabled: 1
+
+**********************************************
+* ERROR: Failed to set breakpoint at symbol __ov_end.  Symbol not found.
+**********************************************
+  [T] 0.00018 seconds
+SetBreakpointAtSymbol()
+  [I] ProcId: 0
+  [I] Symbol: _ov_end
+  [I] Type: 1
+  [I] SkipCount: 0
+  [I] Expression: 
+  [I] Temporary: 0
+  [I] Enabled: 1
+
+**********************************************
+* ERROR: Failed to set breakpoint at symbol _ov_end.  Symbol not found.
+**********************************************
+  [T] 0.00011 seconds
+SetBreakpointAtSymbol()
+  [I] ProcId: 0
+  [I] Symbol: __stack_overflowed
+  [I] Type: 0
+  [I] SkipCount: 0
+  [I] Expression: 
+  [I] Temporary: 0
+  [I] Enabled: 1
+
+**********************************************
+* ERROR: Failed to set breakpoint at symbol __stack_overflowed.  Symbol not found.
+**********************************************
+  [T] 0.00011 seconds
+SetBreakpointAtSymbol()
+  [I] ProcId: 0
+  [I] Symbol: ___lib_prog_term
+  [I] Type: 0
+  [I] SkipCount: 0
+  [I] Expression: 
+  [I] Temporary: 0
+  [I] Enabled: 1
+  [T] 0.00726 seconds
+SetBreakpointAtSymbol()
+  [I] ProcId: 0
+  [I] Symbol: __dbg_assert
+  [I] Type: 1
+  [I] SkipCount: 0
+  [I] Expression: 
+  [I] Temporary: 0
+  [I] Enabled: 1
+
+**********************************************
+* ERROR: Failed to set breakpoint at symbol __dbg_assert.  Symbol not found.
+**********************************************
+  [T] 0.00028 seconds
+SetBreakpointAtSymbol()
+  [I] ProcId: 0
+  [I] Symbol: __fatal_error
+  [I] Type: 0
+  [I] SkipCount: 0
+  [I] Expression: 
+  [I] Temporary: 0
+  [I] Enabled: 1
+  [T] 0.00751 seconds
+SetBreakpointAtSymbol()
+  [I] ProcId: 0
+  [I] Symbol: __ov_start
+  [I] Type: 1
+  [I] SkipCount: 0
+  [I] Expression: 
+  [I] Temporary: 0
+  [I] Enabled: 1
+
+**********************************************
+* ERROR: Failed to set breakpoint at symbol __ov_start.  Symbol not found.
+**********************************************
+  [T] 0.00014 seconds
+SetBreakpointAtSymbol()
+  [I] ProcId: 0
+  [I] Symbol: _ov_start
+  [I] Type: 1
+  [I] SkipCount: 0
+  [I] Expression: 
+  [I] Temporary: 0
+  [I] Enabled: 1
+
+**********************************************
+* ERROR: Failed to set breakpoint at symbol _ov_start.  Symbol not found.
+**********************************************
+  [T] 0.00009 seconds
+GetFunctionBounds()
+  [I] ProcId: 0
+  [I] FunctionName: main
+  [O] TopOfFunction: 0xffa02c04
+  [O] TopOfBody: 0xffa02c08
+  [O] EndOfFunction: 0xffa02c5e
+  [O] EndOfBody: 0xffa02c5e
+  [T] 0.00026 seconds
+SetBreakpointAtAddress()
+  [I] ProcId: 0
+  [I] Address: 0xffa02c08
+  [I] Type: 0
+  [I] SkipCount: 0
+  [I] Expression: 
+  [I] Temporary: 0
+  [I] Enabled: 1
+  [T] 0.00723 seconds
+Run()
+  [I] ProcId: 0
+  [I] Wait: 0
+  [I] Timeout: 0
+
+>> StateChange()
+  [I] State: Running
+  [I] Reason: Client Request
+  [I] ProcId: 0
+  [T] 0.03391 seconds
+>> StateChange()
+  [I] State: Halted
+  [I] Reason: Breakpoint
+  [I] ProcId: 0
+
+EvaluateExpression()
+  [I] ProcId: 0
+  [I] Expression: $PC
+  [I] Format: Hexadecimal
+  [O] Result: 0xffa02c08
+  [T] 0.00017 seconds
+GetStackFrameDepth()
+  [I] ProcId: 0
+  [O] Stack Frame Depth: 1
+  [T] 0.00719 seconds
+GetStackFrames()
+  [I] ProcId: 0
+  [I] StartIndex: 0
+  [I] EndIndex: -1
+  [O] Stack Frame: 0
+  [O]   | FunctionName : main()
+  [O]   | FileName     : C:\Users\jonaz\Desktop\WS_EJEMPLO\AudioLoopback\AudioLoopback.c
+  [O]   | LineNumber   : 208
+  [O]   | Address      : 0xffa02c08
+  [O]   | FrameId      : 0xff807f90
+  [T] 0.00023 seconds
+GetStackFrames()
+  [I] ProcId: 0
+  [I] StartIndex: 0
+  [I] EndIndex: -1
+  [O] Stack Frame: 0
+  [O]   | FunctionName : main()
+  [O]   | FileName     : C:\Users\jonaz\Desktop\WS_EJEMPLO\AudioLoopback\AudioLoopback.c
+  [O]   | LineNumber   : 208
+  [O]   | Address      : 0xffa02c08
+  [O]   | FrameId      : 0xff807f90
+  [T] 0.00011 seconds
+GetProcessorCount()
+  [O] Count: 1
+  [T] 0.00004 seconds
+GetStackFrames()
+  [I] ProcId: 0
+  [I] StartIndex: 0
+  [I] EndIndex: -1
+  [O] Stack Frame: 0
+  [O]   | FunctionName : main()
+  [O]   | FileName     : C:\Users\jonaz\Desktop\WS_EJEMPLO\AudioLoopback\AudioLoopback.c
+  [O]   | LineNumber   : 208
+  [O]   | Address      : 0xffa02c08
+  [O]   | FrameId      : 0xff807f90
+  [T] 0.00014 seconds
+GetProcessorCount()
+  [O] Count: 1
+  [T] 0.00002 seconds
+SetActiveStackFrame()
+  [I] ProcId: 0
+  [I] FrameId: 0xff807f90
+  [T] 0.00003 seconds
+IsStepInEnabled()
+  [I] ProcId: 0
+  [O] IsEnabled: 1
+  [T] 0.00004 seconds
+IsStepOutEnabled()
+  [I] ProcId: 0
+  [O] IsEnabled: 1
+  [T] 0.00010 seconds
+IsStepOverEnabled()
+  [I] ProcId: 0
+  [O] IsEnabled: 1
+  [T] 0.00008 seconds
+GetStackFrames()
+  [I] ProcId: 0
+  [I] StartIndex: 0
+  [I] EndIndex: -1
+  [O] Stack Frame: 0
+  [O]   | FunctionName : main()
+  [O]   | FileName     : C:\Users\jonaz\Desktop\WS_EJEMPLO\AudioLoopback\AudioLoopback.c
+  [O]   | LineNumber   : 208
+  [O]   | Address      : 0xffa02c08
+  [O]   | FrameId      : 0xff807f90
+  [T] 0.00018 seconds
+GetStackFrames()
+  [I] ProcId: 0
+  [I] StartIndex: 0
+  [I] EndIndex: -1
+  [O] Stack Frame: 0
+  [O]   | FunctionName : main()
+  [O]   | FileName     : C:\Users\jonaz\Desktop\WS_EJEMPLO\AudioLoopback\AudioLoopback.c
+  [O]   | LineNumber   : 208
+  [O]   | Address      : 0xffa02c08
+  [O]   | FrameId      : 0xff807f90
+  [T] 0.00017 seconds
+GetLocalVariables()
+  [I] ProcId: 0
+  [I] FrameId: 0xff807f90
+  [T] 0.00013 seconds
+GetProcessorCount()
+  [O] Count: 1
+  [T] 0.00004 seconds
+GetStackFrames()
+  [I] ProcId: 0
+  [I] StartIndex: 0
+  [I] EndIndex: -1
+  [O] Stack Frame: 0
+  [O]   | FunctionName : main()
+  [O]   | FileName     : C:\Users\jonaz\Desktop\WS_EJEMPLO\AudioLoopback\AudioLoopback.c
+  [O]   | LineNumber   : 208
+  [O]   | Address      : 0xffa02c08
+  [O]   | FrameId      : 0xff807f90
+  [T] 0.00015 seconds
+GetProcessorCount()
+  [O] Count: 1
+  [T] 0.00003 seconds
+IsStepInEnabled()
+  [I] ProcId: 0
+  [O] IsEnabled: 1
+  [T] 0.00004 seconds
+IsStepOutEnabled()
+  [I] ProcId: 0
+  [O] IsEnabled: 1
+  [T] 0.00012 seconds
+IsStepOverEnabled()
+  [I] ProcId: 0
+  [O] IsEnabled: 1
+  [T] 0.00011 seconds
+GetStackFrameDepth()
+  [I] ProcId: 0
+  [O] Stack Frame Depth: 1
+  [T] 0.00010 seconds
+GetStackFrames()
+  [I] ProcId: 0
+  [I] StartIndex: 0
+  [I] EndIndex: -1
+  [O] Stack Frame: 0
+  [O]   | FunctionName : main()
+  [O]   | FileName     : C:\Users\jonaz\Desktop\WS_EJEMPLO\AudioLoopback\AudioLoopback.c
+  [O]   | LineNumber   : 208
+  [O]   | Address      : 0xffa02c08
+  [O]   | FrameId      : 0xff807f90
+  [T] 0.00023 seconds
+Run()
+  [I] ProcId: 0
+  [I] Wait: 0
+  [I] Timeout: 0
+
+>> StateChange()
+  [I] State: Running
+  [I] Reason: Client Request
+  [I] ProcId: 0
+  [T] 0.03302 seconds
+GetProcessorCount()
+  [O] Count: 1
+  [T] 0.00003 seconds
+GetProcessorCount()
+  [O] Count: 1
+  [T] 0.00001 seconds
+IsStepInEnabled()
+  [I] ProcId: 0
+  [O] IsEnabled: 0
+  [T] 0.00003 seconds
+IsStepOutEnabled()
+  [I] ProcId: 0
+  [O] IsEnabled: 0
+  [T] 0.00001 seconds
+IsStepOverEnabled()
+  [I] ProcId: 0
+  [O] IsEnabled: 0
+  [T] 0.00002 seconds
+GetProcessorCount()
+  [O] Count: 1
+  [T] 0.00004 seconds
+GetProcessorCount()
+  [O] Count: 1
+  [T] 0.00001 seconds
+IsStepInEnabled()
+  [I] ProcId: 0
+  [O] IsEnabled: 0
+  [T] 0.00003 seconds
+IsStepOutEnabled()
+  [I] ProcId: 0
+  [O] IsEnabled: 0
+  [T] 0.00001 seconds
+IsStepOverEnabled()
+  [I] ProcId: 0
+  [O] IsEnabled: 0
+  [T] 0.00002 seconds
+Disconnect()
+
+>> StateChange()
+  [I] State: Halted
+  [I] Reason: Client Request
+  [I] ProcId: 0
+  [T] 0.53724 seconds
