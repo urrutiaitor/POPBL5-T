@@ -4,6 +4,7 @@ import java.util.Scanner;
 
 import connection.LineaSerie;
 import connection.MultiThreadedServer;
+import gnu.io.SerialPortEvent;
 import gnu.io.SerialPortEventListener;
 import graphicInterface.Window;
 import operation.Action;
@@ -15,7 +16,8 @@ public class Main {
 	Window window;
 	MultiThreadedServer server;
 	LineaSerie serie;
-	SerialPortEventListener serialListener;
+	SerialPortEventListener listener;
+	LineaSerie bufferSerie;
 
 	public static void main(String[] args) {
 		Main main = new Main ();
@@ -24,15 +26,27 @@ public class Main {
 	}
 	
 	public Main () {
-		house = new House(Action.getNumActions());
+		listener = new SerialPortEventListener() {
+			
+			@Override
+			public void serialEvent(SerialPortEvent arg0) {
+				if(arg0.getEventType() == SerialPortEvent.DATA_AVAILABLE){
+					house.saveAction();
+//					house.releaseSerialReader();
+//					System.out.println("evento entrada: "+arg0.getEventType());
+				}
+			}
+		};
+		bufferSerie = new LineaSerie();
+		bufferSerie.initialize(listener);
+		
+		house = new House(Action.getNumActions(),bufferSerie);
 		window = new Window(house);
 		
 		house.addObserver(window);
 		
 		server = new MultiThreadedServer(9000, house);
 		new Thread(server).start();
-		serie = new LineaSerie();
-		serie.initialize(serialListener);
 	}
 	
 	public void loop () {
