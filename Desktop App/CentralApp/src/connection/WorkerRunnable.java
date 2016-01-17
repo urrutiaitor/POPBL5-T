@@ -109,7 +109,8 @@ public class WorkerRunnable implements Runnable {
 	private void tryChange(DataOutputStream dataOutput, String[] data) {
 		String comand = null;
 		
-		if (house.makeAction(Integer.valueOf(data[1]), Integer.valueOf(data[2]))) {
+		
+		if (house.makeAction(Short.valueOf(data[1]), Short.valueOf(data[2]))) {
 			comand = "SUCCESSFUL";
 		} else {
 			comand = "WRONG";
