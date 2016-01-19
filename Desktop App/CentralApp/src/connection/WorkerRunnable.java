@@ -6,10 +6,13 @@ import java.io.IOException;
 import java.io.InputStream;
 import java.io.OutputStream;
 import java.net.Socket;
+import java.util.Observable;
+import java.util.Observer;
 
+import operation.Action;
 import operation.House;
 
-public class WorkerRunnable implements Runnable {
+public class WorkerRunnable implements Runnable, Observer {
 
 	House house;
 	int user;
@@ -45,16 +48,9 @@ public class WorkerRunnable implements Runnable {
 					initTime = Integer.valueOf(data[2]);
 					sendInfo(dataInput, dataOutput);
 					break;
-				case "INFO":
-					
-					break;
 				case "CHANGE":
-					tryChange(dataOutput, data);
+					house.makeAction(Short.valueOf(data[1]), Short.valueOf(data[2]));
 					break;
-				case "NULL":
-					if (!send(dataOutput))
-						dataOutput.writeBytes("NULL");
-					
 				}
 			}
 			
@@ -64,10 +60,17 @@ public class WorkerRunnable implements Runnable {
 		}
 	}
 
-	private boolean send (DataOutputStream dataOutput) {
-		int data[] = null;
+	private boolean send (int data[]) {
+		OutputStream output = null;
+		try {
+			output = clientSocket.getOutputStream();
+		} catch (IOException e1) {
+			// TODO Auto-generated catch block
+			e1.printStackTrace();
+		}
 		
-		if ((data = house.getChanges(user)) == null) return false;
+		DataOutputStream dataOutput = new DataOutputStream(output);
+		
 		try {
 			dataOutput.writeBytes("CHANGE%" + String.valueOf(data[1] + "%" + String.valueOf(data[0])));
 		} catch (IOException e) {
@@ -95,33 +98,21 @@ public class WorkerRunnable implements Runnable {
 				light2 + "%" + light3 + "%" + light4;
 		
 		try {
-			
-			do {
-				dataOutput.writeBytes(out);
-			}  while (dataInput.readLine() == "WRONG");
-			
+			dataOutput.writeBytes(out);
 		} catch (IOException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
+		
 	}
-	
-	private void tryChange(DataOutputStream dataOutput, String[] data) {
-		String comand = null;
-		
-		
-		if (house.makeAction(Short.valueOf(data[1]), Short.valueOf(data[2]))) {
-			comand = "SUCCESSFUL";
-		} else {
-			comand = "WRONG";
-		}
-		
-		try {
-			dataOutput.writeBytes(comand);
-		} catch (IOException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
+
+	@Override
+	public void update(Observable o, Object arg) {
+		Action action = (Action) arg;
+		int data[] = new int[2];
+		data[1] = action.getAction();
+		data[0] = action.getUser();
+		send(data);
 	}
 
 }

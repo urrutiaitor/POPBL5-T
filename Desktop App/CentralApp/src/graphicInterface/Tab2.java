@@ -9,6 +9,8 @@ import java.awt.event.ActionListener;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Date;
+import java.util.Observable;
+import java.util.Observer;
 
 import javax.swing.BorderFactory;
 import javax.swing.DefaultListModel;
@@ -24,7 +26,7 @@ import javax.swing.event.ListSelectionListener;
 import operation.Action;
 import operation.Reader;
 
-public class Tab2 extends JPanel implements ListSelectionListener, ActionListener {
+public class Tab2 extends JPanel implements ListSelectionListener, ActionListener, Observer {
 
 	Window window;
 	
@@ -186,5 +188,13 @@ public class Tab2 extends JPanel implements ListSelectionListener, ActionListene
 	public void actionPerformed(ActionEvent e) {
 		// TODO Auto-generated method stub
 		
+	}
+
+	@Override
+	public void update(Observable o, Object arg) {
+		Action action = (Action) arg;
+		
+		actionList.add(action);
+		listModel.addElement(window.getActionsName()[action.getAction()][window.getSelectedLenguage()]);
 	}
 }

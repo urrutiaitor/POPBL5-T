@@ -12,6 +12,8 @@ import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.SwingConstants;
 
+import operation.Action;
+
 public class Tab1 extends JPanel implements Observer {
 
 	Window window;
@@ -158,8 +160,58 @@ public class Tab1 extends JPanel implements Observer {
 	
 	@Override
 	public void update(Observable o, Object arg) {
-		// TODO Auto-generated method stub
+Action action = (Action) arg;
 		
+		switch (action.getAction()) {
+		case Action.BLIND_UP:
+			blindLabel.setIcon(blindUpIcon);
+			break;
+		case Action.BLIND_DOWN:
+			blindLabel.setIcon(blindDownIcon);
+			break;
+		case Action.HEATING_START:
+			heatingLabel.setIcon(heatingOnIcon);
+			break;
+		case Action.HEATING_STOP:
+			heatingLabel.setIcon(heatingOffIcon);
+			break;
+		case Action.DOOR_OPEN:
+			doorLabel.setIcon(doorOpenedIcon);
+			break;
+		case Action.DOOR_CLOSE:
+			doorLabel.setIcon(doorClosedIcon);
+			break;
+		case Action.ALARM_START:
+			alarmLabel.setIcon(alarmOnIcon);
+			break;
+		case Action.ALARM_STOP:
+			alarmLabel.setIcon(alarmOffIcon);
+			break;
+		case Action.LIGHT1_ON:
+			lightLabel[0].setIcon(lightOnIcon);
+			break;
+		case Action.LIGTH1_OFF:
+			lightLabel[0].setIcon(lightOffIcon);
+			break;
+		case Action.LIGHT2_ON:
+			lightLabel[1].setIcon(lightOnIcon);
+			break;
+		case Action.LIGHT2_OFF:
+			lightLabel[1].setIcon(lightOffIcon);
+			break;
+		case Action.LIGHT3_ON:
+			lightLabel[2].setIcon(lightOnIcon);
+			break;
+		case Action.LIGHT3_OFF:
+			lightLabel[2].setIcon(lightOffIcon);
+			break;
+		case Action.LIGHT4_ON:
+			lightLabel[3].setIcon(lightOnIcon);
+			break;
+		case Action.LIGHT4_OFF:
+			lightLabel[3].setIcon(lightOffIcon);
+			break;
+		}
 	}
 	
 }

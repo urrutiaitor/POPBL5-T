@@ -4,6 +4,7 @@ import java.util.Scanner;
 
 import connection.LineaSerie;
 import connection.MultiThreadedServer;
+import connection.WorkerRunnable;
 import gnu.io.SerialPortEvent;
 import gnu.io.SerialPortEventListener;
 import graphicInterface.Window;
@@ -15,9 +16,9 @@ public class Main {
 	House house;
 	Window window;
 	MultiThreadedServer server;
-	LineaSerie serie;
 	SerialPortEventListener listener;
 	LineaSerie bufferSerie;
+	WorkerRunnable workerRunnable;
 
 	public static void main(String[] args) {
 		Main main = new Main ();
@@ -26,6 +27,7 @@ public class Main {
 	}
 	
 	public Main () {
+		workerRunnable = new WorkerRunnable(clientSocket, house);
 		listener = new SerialPortEventListener() {
 			
 			@Override

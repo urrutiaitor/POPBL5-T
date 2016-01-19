@@ -241,5 +241,13 @@ public class Window extends JFrame implements ActionListener {
 		ArrayList list = new ArrayList<>();
 		return list;
 	}
+
+	public Observer getTab1() {
+		return tab1;
+	}
+	
+	public Observer getTab2() {
+		return tab2;
+	}
 	
 }
