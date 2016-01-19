@@ -12,6 +12,12 @@ import connection.LineaSerie;
 
 
 public class House extends Observable{
+	
+	final String tabFilePath = "tabFile.txt";
+	final String menuFilePath = "menuFile.txt";
+	final String actionsFilePath = "actionsFile.txt";
+	final String objectsFilePath = "objectsFile.txt";
+	final String actionsRegisterFilePath = "actionsRegisterFile.txt";
 
 	final static int USERBITS = 3;
 	final static int ACTIONBITS = 5;
@@ -24,10 +30,11 @@ public class House extends Observable{
 	Semaphore serialReader; //hilo hacerCambiosEnPlaca: mandar por serial a placa el cambio.
 	ArrayList<Integer> changesIndex;
 	LineaSerie serial;
+	
 	/*
-	 * Se guardarán todos los cambios
+	 * Se guardarï¿½n todos los cambios
 	 * Se tendra que hacer una funcion para ver si se han efectuado cambios
-	 * A esa funcion se accederá por fuera desde otros usuarios
+	 * A esa funcion se accederï¿½ por fuera desde otros usuarios
 	 */
 	
 	
@@ -57,6 +64,7 @@ public class House extends Observable{
 		byte[] infor;
 		boolean state;
 		short[] data = new short[2];
+		Action auxAction;
 		
 		try {
 			
@@ -69,8 +77,7 @@ public class House extends Observable{
 				action = data[1];
 				user = data[0];
 				ind = action/2;
-				Calendar calendar = Calendar.getInstance();
-				long time =  calendar.getTimeInMillis();
+				long time =  System.currentTimeMillis();
 				Action aux = new Action(action, user, time);
 				if (action%2 == 1) {
 					state = false;
@@ -79,7 +86,6 @@ public class House extends Observable{
 				}
 				changes.add(aux);
 				states[ind] = state;
-				notifyObservers();
 				
 				for(int x=0;x<socketsReaders.size();x++){
 					socketsReaders.get(x).release();
@@ -89,10 +95,15 @@ public class House extends Observable{
 			serialReader.release();
 			
 			mutex.release();
+		
 		} catch (InterruptedException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
+		
+		notifyObservers(auxAction = new Action(data[1], data[0], System.currentTimeMillis()));
+		Writter.setRegAction(actionsRegisterFilePath, auxAction);
+		
 		return true; //DENA ONDO JOAN DELAKO
 	}
 	private short[] interpretarInformacion(short inforInt) {
@@ -362,36 +373,5 @@ public class House extends Observable{
 			return false;
 		}
 	}
-
-//	public boolean hasChanged(int action){
-//		boolean currentState;
-//		boolean changed = false;
-//		
-//		try {
-//			if(receivedAction.tryAcquire(1, TimeUnit.SECONDS)){
-//				receivedAction.acquire();
-//				if(action%2 == 0){
-//				currentState = false;
-//				}else{
-//					currentState = true;
-//				}
-//				if(states[action/2] == currentState){
-//					changed = true;
-//				}
-//				else{
-//					changed = false;
-//				}
-//			}
-//			
-//		} catch (InterruptedException e) {
-//			// TODO Auto-generated catch block
-//			e.printStackTrace();
-//		}
-//		return changed;
-//		
-//	}
-
-	
-	
 	
 }

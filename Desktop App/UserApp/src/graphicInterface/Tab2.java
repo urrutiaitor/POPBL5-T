@@ -6,7 +6,11 @@ import java.awt.GridLayout;
 import java.awt.LayoutManager;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Date;
+import java.util.Observable;
+import java.util.Observer;
 
 import javax.swing.BorderFactory;
 import javax.swing.DefaultListModel;
@@ -21,12 +25,13 @@ import javax.swing.event.ListSelectionListener;
 
 import operation.Action;
 
-public class Tab2 extends JPanel implements ListSelectionListener, ActionListener {
+public class Tab2 extends JPanel implements ListSelectionListener, ActionListener, Observer {
 
 	Window window;
 	
 	JList<String> list;
 	DefaultListModel<String> listModel;
+	ArrayList<Action> actionList;
 	
 	JLabel userLabel, dateLabel;
 	JButton acceptButton, denyButton;
@@ -85,7 +90,7 @@ public class Tab2 extends JPanel implements ListSelectionListener, ActionListene
 	
 	private Component listPanel() {
 		listModel = new DefaultListModel<String>();
-		ArrayList<Action> actionList = window.getActionHistorical();
+		actionList = window.getActionHistorical();
 		
 		for (int i = 0; i < actionList.size(); i++) {
 			listModel.addElement(window.getActionsName()[actionList.get(0).getAction()][window.getSelectedLenguage()]);
@@ -133,13 +138,27 @@ public class Tab2 extends JPanel implements ListSelectionListener, ActionListene
 
 	@Override
 	public void valueChanged(ListSelectionEvent e) {
-		// TODO Auto-generated method stub
+		long val = actionList.get(e.getFirstIndex()).getTime();
+		Date date = new Date(val);
+		SimpleDateFormat df = new SimpleDateFormat("EEE, dd MMM yyyy HH:mm:ss z");
+		String dateText = df.format(date);
 		
+		userLabel.setText(String.valueOf(actionList.get(e.getFirstIndex()).getUser()));
+		dateLabel.setText(dateText);
 	}
 
 	@Override
 	public void actionPerformed(ActionEvent e) {
 		// TODO Auto-generated method stub
 		
+	}
+
+	@Override
+	public void update(Observable o, Object arg) {
+		Action action = (Action) arg;
+		
+		actionList.add(action);
+		listModel.addElement(window.getActionsName()[action.getAction()][window.getSelectedLenguage()]);
+			
 	}
 }

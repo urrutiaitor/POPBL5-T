@@ -84,7 +84,7 @@ public class Reader {
 			}
 			data = line.split("%");
 			if (data[0] == null) {
-				System.err.println("Erros trying to split line in file " + pathname);
+				System.err.println("Error trying to split line in file " + pathname);
 				fr.close();
 				br.close();
 				return -1;
