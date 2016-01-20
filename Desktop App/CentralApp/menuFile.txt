@@ -1,7 +1,7 @@
 MENU0%Fitxategia%Archivo%File
-MENU1%Azpi fitxategia%Subarchivo%Under file
+MENU1%Historiala kopiatu%Copiar historial%Copy historical
 MENU2%Edizioa%Editar%Edit
-MENU3%Azpi edizioa%Subeditar%Under edit
+MENU3%Historiala ezabatu%Borrar historial%Delete historical
 MENU4%Konfigurazioa%Configuracion%Setting
 MENU5%Hizkuntza%Idioma%Lenguage
 MENU6%Euskera%Vasco%Basque

@@ -6,17 +6,24 @@ import java.awt.GridLayout;
 import java.awt.LayoutManager;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.io.File;
+import java.io.FileNotFoundException;
+import java.io.PrintWriter;
+import java.io.UnsupportedEncodingException;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.Observable;
 import java.util.Observer;
+import java.util.concurrent.Semaphore;
 
 import javax.swing.BorderFactory;
 import javax.swing.DefaultListModel;
 import javax.swing.JButton;
+import javax.swing.JFileChooser;
 import javax.swing.JLabel;
 import javax.swing.JList;
+import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.JScrollPane;
 import javax.swing.ListSelectionModel;
@@ -24,6 +31,7 @@ import javax.swing.event.ListSelectionEvent;
 import javax.swing.event.ListSelectionListener;
 
 import operation.Action;
+import operation.BuzonSincrono;
 
 public class Tab2 extends JPanel implements ListSelectionListener, ActionListener, Observer {
 
@@ -42,30 +50,38 @@ public class Tab2 extends JPanel implements ListSelectionListener, ActionListene
 	private JPanel infoPanel;
 	private JLabel inputLabel;
 	
+	String defaultMessage;
+	String message = null;
+	BuzonSincrono buzon;
+	
 	
 	public Tab2 (Window window) {
 		this.window = window;
+		defaultMessage = window.getObjectsName()[16][window.getSelectedLenguage()];
 		
 		this.setLayout(new GridLayout(1, 2, 10, 10));
 		this.add(confirmationPanel());
 		this.add(historicalPanel());
+		
 	}
 
 	private Component confirmationPanel() {
 		confirmationPanel = new JPanel(new BorderLayout());
+		buttonPanel = new JPanel(new GridLayout(1, 2));
 		
 		confirmationPanel.add(inputPanel(), BorderLayout.CENTER);
-		confirmationPanel.add(buttonPanel(), BorderLayout.CENTER);
+		confirmationPanel.add(buttonPanel(), BorderLayout.SOUTH);
+		
 		confirmationPanel.setBorder(BorderFactory.createTitledBorder(window.getObjectsName()[8][window.getSelectedLenguage()]));
 		
 		return confirmationPanel;
 	}
 
 	private Component inputPanel() {
-		inputLabel = new JLabel();
+		inputLabel = new JLabel(defaultMessage);
 		
+		inputLabel.setHorizontalTextPosition(JLabel.CENTER);
 		inputLabel.setBorder(BorderFactory.createTitledBorder(window.getObjectsName()[9][window.getSelectedLenguage()]));
-		
 		
 		return inputLabel;
 	}
@@ -75,6 +91,9 @@ public class Tab2 extends JPanel implements ListSelectionListener, ActionListene
 		
 		buttonPanel.add(acceptButton = new JButton(window.getObjectsName()[10][window.getSelectedLenguage()]));
 		buttonPanel.add(denyButton = new JButton(window.getObjectsName()[11][window.getSelectedLenguage()]));
+		
+		acceptButton.setEnabled(false);
+		denyButton.setEnabled(false);
 		
 		return buttonPanel;
 	}
@@ -134,6 +153,25 @@ public class Tab2 extends JPanel implements ListSelectionListener, ActionListene
 		userLabel.setBorder(BorderFactory.createTitledBorder(window.getObjectsName()[14][window.getSelectedLenguage()]));
 		dateLabel.setBorder(BorderFactory.createTitledBorder(window.getObjectsName()[14][window.getSelectedLenguage()]));
 		
+		if (inputLabel.getText().equals(defaultMessage)) {
+			defaultMessage = window.getObjectsName()[15][window.getSelectedLenguage()];
+			inputLabel.setText(defaultMessage);
+		} else {
+			defaultMessage = window.getObjectsName()[15][window.getSelectedLenguage()];
+		}
+		
+	}
+	
+	public void setMessage(int user, int action, BuzonSincrono buzon) {
+		if (window.getSelectedLenguage() == 0) message = user + " erabiltzaileak " + action + " akzioa eskatu du";
+		if (window.getSelectedLenguage() == 0) message = "Usuario " + user + " ha pedido acción " + action;
+		if (window.getSelectedLenguage() == 0) message = "User " + user + " has requested action " + action;
+		
+		acceptButton.setEnabled(true);
+		denyButton.setEnabled(true);
+		
+		inputLabel.setText(message);
+		this.buzon = buzon;
 	}
 
 	@Override
@@ -149,8 +187,31 @@ public class Tab2 extends JPanel implements ListSelectionListener, ActionListene
 
 	@Override
 	public void actionPerformed(ActionEvent e) {
-		// TODO Auto-generated method stub
+		if (window.getObjectsName()[10][window.getSelectedLenguage()] == e.getActionCommand()) { /* ACCEPTED */
+			if (buzon == null) return;
+			
+			buzon.send("ACCEPTED");
+			
+			acceptButton.setEnabled(false);
+			denyButton.setEnabled(false);
+			
+			inputLabel.setText(defaultMessage);
+			
+			buzon = null;
+		}
 		
+		if (window.getObjectsName()[11][window.getSelectedLenguage()] == e.getActionCommand()) { /* DENIED */
+			if (buzon == null) return;
+			
+			buzon.send("DENIED");
+
+			acceptButton.setEnabled(false);
+			denyButton.setEnabled(false);
+			
+			inputLabel.setText(defaultMessage);
+			
+			buzon = null;
+		}
 	}
 
 	@Override
@@ -160,5 +221,39 @@ public class Tab2 extends JPanel implements ListSelectionListener, ActionListene
 		actionList.add(action);
 		listModel.addElement(window.getActionsName()[action.getAction()][window.getSelectedLenguage()]);
 			
+	}
+
+	public void deleteHistorial() {
+		listModel.removeAllElements();
+		actionList = new ArrayList<Action>();
+	}
+	
+	public void copyHistorial() {
+		JFileChooser fileChooser = new JFileChooser();
+		fileChooser.setFileSelectionMode(JFileChooser.DIRECTORIES_ONLY);
+		File desktop = new File(System.getProperty("user.home"), "Desktop");
+		fileChooser.setCurrentDirectory(desktop);
+		
+		if (fileChooser.showOpenDialog(window) == JFileChooser.APPROVE_OPTION) {
+			String path = fileChooser.getSelectedFile().getAbsolutePath();
+			Date date = new Date(System.currentTimeMillis());
+			SimpleDateFormat df = new SimpleDateFormat("EEE, dd MMM yyyy HH:mm:ss z");
+			String dateText = df.format(date);
+			String name = "/historial(" + dateText + ").txt";
+			PrintWriter writer = null;
+			try {
+				writer = new PrintWriter(path + name, "UTF-8");
+			} catch (FileNotFoundException | UnsupportedEncodingException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+			
+			for (int i = 0; i < actionList.size(); i++) {
+				writer.println(actionList.get(i).toString());
+			}
+			writer.close();
+		} else {
+			JOptionPane.showMessageDialog(null, "Alert", "Something has gone wrong", JOptionPane.ERROR_MESSAGE);
+		}
 	}
 }

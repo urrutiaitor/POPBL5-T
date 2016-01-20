@@ -25,7 +25,7 @@ public class LineaSerie {
 		if(puertos.hasMoreElements()){
 			while(puertos.hasMoreElements()){
 				portId = (CommPortIdentifier) puertos.nextElement();
-				
+				break;
 			}
 		}else{
 			System.out.println("no hay puertos com");

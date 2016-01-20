@@ -27,7 +27,6 @@ public class Main {
 	}
 	
 	public Main () {
-		workerRunnable = new WorkerRunnable(clientSocket, house);
 		listener = new SerialPortEventListener() {
 			
 			@Override

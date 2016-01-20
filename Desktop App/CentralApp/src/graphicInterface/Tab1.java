@@ -190,7 +190,7 @@ Action action = (Action) arg;
 		case Action.LIGHT1_ON:
 			lightLabel[0].setIcon(lightOnIcon);
 			break;
-		case Action.LIGTH1_OFF:
+		case Action.LIGHT1_OFF:
 			lightLabel[0].setIcon(lightOffIcon);
 			break;
 		case Action.LIGHT2_ON:

@@ -1,5 +1,8 @@
 package operation;
 
+import java.text.SimpleDateFormat;
+import java.util.Date;
+
 public class Action {
 
 	public final static int NUM_ACTIONS = 16;
@@ -59,4 +62,12 @@ public class Action {
 		return NUM_ACTIONS;
 	}
 
+	@Override
+	public String toString() {
+		Date date = new Date(time);
+		SimpleDateFormat df = new SimpleDateFormat("EEE, dd MMM yyyy HH:mm:ss z");
+		String dateText = df.format(date);
+		return "Action [action=" + action + ", user=" + user + ", time=" + dateText + "]";
+	}
+	
 }
