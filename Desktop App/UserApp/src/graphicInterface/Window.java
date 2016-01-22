@@ -52,7 +52,7 @@ public class Window extends JFrame implements ActionListener {
 	final static int TABCANT = 2;
 	final static int MENUCANT = 9;
 	final static int ACTIONCANT = 16;
-	final static int OBJECTCANT = 16;
+	final static int OBJECTCANT = 17;
 
 	JTabbedPane tabbedPane;
 	JMenu menuFile, menuEdit, menuConfiguration, lenguage;
@@ -68,8 +68,7 @@ public class Window extends JFrame implements ActionListener {
 		
 		this.setJMenuBar(createMenuBar());
 		this.setContentPane(createFrame());
-		this.setLocation(200, 200);
-		this.setSize(640, 480);
+		this.setExtendedState(JFrame.MAXIMIZED_BOTH); 
 		this.setVisible(true);
 		this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 	}
@@ -170,10 +169,10 @@ public class Window extends JFrame implements ActionListener {
 		String ac = e.getActionCommand();
 
 		if (menuName[1][selectedLenguage].matches(ac)) {
-			System.out.println("SubFile");
+			tab2.copyHistorial();
 		}
 		if (menuName[3][selectedLenguage].matches(ac)) {
-			System.out.println("SubEdit");
+			tab2.deleteHistorial();
 		}
 		if (menuName[6][selectedLenguage].matches(ac)) {
 			selectedLenguage = 0;
@@ -242,11 +241,11 @@ public class Window extends JFrame implements ActionListener {
 		return list;
 	}
 
-	public Observer getTab1() {
+	public Tab1 getTab1() {
 		return tab1;
 	}
 	
-	public Observer getTab2() {
+	public Tab2 getTab2() {
 		return tab2;
 	}
 	

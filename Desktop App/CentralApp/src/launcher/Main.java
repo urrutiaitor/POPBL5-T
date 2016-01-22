@@ -27,15 +27,12 @@ public class Main {
 	}
 	
 	public Main () {
-		workerRunnable = new WorkerRunnable(clientSocket, house);
 		listener = new SerialPortEventListener() {
 			
 			@Override
 			public void serialEvent(SerialPortEvent arg0) {
 				if(arg0.getEventType() == SerialPortEvent.DATA_AVAILABLE){
 					house.saveAction();
-//					house.releaseSerialReader();
-//					System.out.println("evento entrada: "+arg0.getEventType());
 				}
 			}
 		};

@@ -14,3 +14,5 @@ ACTION12%3 argia biztu%Encender luz 3%Switch on light 3
 ACTION13%3 argia itzali%Apagar luz 3%Switch off light 3
 ACTION14%4 argia biztu%Encender luz 4%Switch on light 4
 ACTION15%4 argia itzali%Apagar luz 4%Switch off light 4
+ACTION16%Argia biztu%Encender luz%Switch on light
+ACTION17%Argia itzali%Apagar luz%Switch off light

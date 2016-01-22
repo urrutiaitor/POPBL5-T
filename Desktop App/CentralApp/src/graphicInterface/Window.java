@@ -46,7 +46,7 @@ public class Window extends JFrame implements ActionListener, Observer {
 	final static int LENGUAGECANT = 3;
 	final static int TABCANT = 2;
 	final static int MENUCANT = 9;
-	final static int ACTIONCANT = 16;
+	final static int ACTIONCANT = 18;
 	final static int OBJECTCANT = 17;
 
 	JTabbedPane tabbedPane;
@@ -63,8 +63,7 @@ public class Window extends JFrame implements ActionListener, Observer {
 		
 		this.setJMenuBar(createMenuBar());
 		this.setContentPane(createFrame());
-		this.setLocation(200, 200);
-		this.setSize(640, 480);
+		this.setExtendedState(JFrame.MAXIMIZED_BOTH); 
 		this.setVisible(true);
 		this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 	}
@@ -165,10 +164,10 @@ public class Window extends JFrame implements ActionListener, Observer {
 		String ac = e.getActionCommand();
 
 		if (menuName[1][selectedLenguage].matches(ac)) {
-			System.out.println("SubFile");
+			tab2.copyHistorial();
 		}
 		if (menuName[3][selectedLenguage].matches(ac)) {
-			System.out.println("SubEdit");
+			tab2.deleteHistorial();
 		}
 		if (menuName[6][selectedLenguage].matches(ac)) {
 			selectedLenguage = 0;
@@ -224,17 +223,6 @@ public class Window extends JFrame implements ActionListener, Observer {
 		tab1.refresh();
 		tab2.refresh();
 
-	}
-
-	/*
-	 * 
-	 * EGITEKOO
-	 * 
-	 */
-	
-	public ArrayList<Action> getActionHistorical() {
-		ArrayList list = new ArrayList<>();
-		return list;
 	}
 
 	@Override

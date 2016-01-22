@@ -1,6 +1,7 @@
 package launcher;
 
 import java.util.Scanner;
+import java.util.concurrent.Semaphore;
 
 import connection.LineaSerie;
 import connection.SocketConnection;
@@ -8,6 +9,7 @@ import gnu.io.SerialPortEvent;
 import gnu.io.SerialPortEventListener;
 import graphicInterface.Window;
 import operation.Action;
+import operation.BuzonSincrono;
 import operation.House;
 
 public class Main {
@@ -17,7 +19,7 @@ public class Main {
 	SerialPortEventListener listener;
 	LineaSerie bufferSerie;
 	SocketConnection socketConn;
-
+	
 	public static void main(String[] args) {
 		Main main = new Main();
 		main.loop();
@@ -32,7 +34,16 @@ public class Main {
 					byte infor[] = bufferSerie.leer();
 					short[] data = house.interpretarInformacion(infor[0]);
 					String str = "REQUEST%" + data[0] + "%" + data[1];
-					socketConn.tryWrite(str);
+					
+					BuzonSincrono buzon = new BuzonSincrono();
+					window.getTab2().setMessage(data[0], data[1], buzon);
+					String str1 = (String) buzon.receive();
+					if (str1.equals("ACCEPTED")) {
+						socketConn.tryWrite(str);
+					}
+					if (str1.equals("DENIED")) {
+						System.out.println("Request denied");
+					}
 				}
 			}
 		};
