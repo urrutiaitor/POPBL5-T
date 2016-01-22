@@ -19,7 +19,7 @@ public class Main {
 	SerialPortEventListener listener;
 	LineaSerie bufferSerie;
 	SocketConnection socketConn;
-
+	
 	public static void main(String[] args) {
 		Main main = new Main();
 		main.loop();
@@ -37,10 +37,11 @@ public class Main {
 					
 					BuzonSincrono buzon = new BuzonSincrono();
 					window.getTab2().setMessage(data[0], data[1], buzon);
-					if (buzon.receive().equals("ACCEPTED")) {
+					String str1 = (String) buzon.receive();
+					if (str1.equals("ACCEPTED")) {
 						socketConn.tryWrite(str);
 					}
-					if (buzon.receive().equals("DENIED")) {
+					if (str1.equals("DENIED")) {
 						System.out.println("Request denied");
 					}
 				}

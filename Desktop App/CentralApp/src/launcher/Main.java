@@ -33,8 +33,6 @@ public class Main {
 			public void serialEvent(SerialPortEvent arg0) {
 				if(arg0.getEventType() == SerialPortEvent.DATA_AVAILABLE){
 					house.saveAction();
-//					house.releaseSerialReader();
-//					System.out.println("evento entrada: "+arg0.getEventType());
 				}
 			}
 		};
