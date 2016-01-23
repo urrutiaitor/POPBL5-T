@@ -19,12 +19,6 @@ public class Main {
 	SerialPortEventListener listener;
 	LineaSerie bufferSerie;
 	WorkerRunnable workerRunnable;
-
-	public static void main(String[] args) {
-		Main main = new Main ();
-		
-		main.loop();
-	}
 	
 	public Main () {
 		listener = new SerialPortEventListener() {
@@ -46,6 +40,12 @@ public class Main {
 		
 		server = new MultiThreadedServer(9000, house);
 		new Thread(server).start();
+	}
+	
+	public static void main(String[] args) {
+		Main main = new Main ();
+		
+		main.loop();
 	}
 	
 	public void loop () {

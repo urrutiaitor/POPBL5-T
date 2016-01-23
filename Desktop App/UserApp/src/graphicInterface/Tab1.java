@@ -10,8 +10,6 @@ import javax.swing.BorderFactory;
 import javax.swing.ImageIcon;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
-import javax.swing.SwingConstants;
-
 import operation.Action;
 
 public class Tab1 extends JPanel implements Observer {

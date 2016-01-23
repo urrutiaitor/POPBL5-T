@@ -72,12 +72,12 @@ public class Tab1 extends JPanel implements Observer {
 		
 		subPanel[0].add(new JLabel(blindUpIcon), BorderLayout.WEST);
 		subPanel[1].add(new JLabel(blindDownIcon), BorderLayout.WEST);
-		subPanel[2].add(new JLabel(alarmOnIcon), BorderLayout.WEST);
-		subPanel[3].add(new JLabel(alarmOffIcon), BorderLayout.WEST);
-		subPanel[4].add(new JLabel(heatingOnIcon), BorderLayout.WEST);
-		subPanel[5].add(new JLabel(heatingOffIcon), BorderLayout.WEST);
-		subPanel[6].add(new JLabel(doorOpenedIcon), BorderLayout.WEST);
-		subPanel[7].add(new JLabel(doorClosedIcon), BorderLayout.WEST);
+		subPanel[2].add(new JLabel(heatingOnIcon), BorderLayout.WEST);
+		subPanel[3].add(new JLabel(heatingOffIcon), BorderLayout.WEST);
+		subPanel[4].add(new JLabel(doorOpenedIcon), BorderLayout.WEST);
+		subPanel[5].add(new JLabel(doorClosedIcon), BorderLayout.WEST);
+		subPanel[6].add(new JLabel(alarmOnIcon), BorderLayout.WEST);
+		subPanel[7].add(new JLabel(alarmOffIcon), BorderLayout.WEST);
 		subPanel[8].add(new JLabel(lightOnIcon), BorderLayout.WEST);
 		subPanel[9].add(new JLabel(lightOffIcon), BorderLayout.WEST);
 		subPanel[10].add(new JLabel(lightOnIcon), BorderLayout.WEST);
