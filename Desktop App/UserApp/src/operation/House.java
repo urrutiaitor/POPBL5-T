@@ -273,7 +273,12 @@ public class House extends Observable{
 		if (state == 1) {
 			states[i] = true;
 		}
+		
+		System.out.println("Set change");
+		
+		setChanged();
 		notifyObservers(new Action((i*2) + state, 0, 0));
+		
 	}
 
 	public void changeState(int user, int action) {
@@ -282,7 +287,8 @@ public class House extends Observable{
 		} else {
 			states[action/2] = false;
 		}
-		
+		System.out.println("Change change");
+		setChanged();
 		notifyObservers(new Action(action, user, System.currentTimeMillis()));
 	}
 	

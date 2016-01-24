@@ -5,6 +5,7 @@ import java.util.concurrent.Semaphore;
 
 import connection.LineaSerie;
 import connection.SocketConnection;
+import connection.WorkerRunnable;
 import gnu.io.SerialPortEvent;
 import gnu.io.SerialPortEventListener;
 import graphicInterface.Window;
@@ -31,14 +32,16 @@ public class Main {
 			@Override
 			public void serialEvent(SerialPortEvent arg0) {
 				if(arg0.getEventType() == SerialPortEvent.DATA_AVAILABLE){
-					byte infor[] = bufferSerie.leer();
-					short[] data = house.interpretarInformacion(infor[0]);
-					String str = "REQUEST%" + data[0] + "%" + data[1];
+					byte[] infor = bufferSerie.leer();
+					short[] data = house.interpretarInformacion((short)infor[0]);
+					String str = "REQUEST%" + data[0] + "%" + data[1] + "\n";
+					System.out.println(str);
 					
 					BuzonSincrono buzon = new BuzonSincrono();
 					window.getTab2().setMessage(data[0], data[1], buzon);
 					String str1 = (String) buzon.receive();
 					if (str1.equals("ACCEPTED")) {
+						System.out.println("to send serial");
 						socketConn.tryWrite(str);
 					}
 					if (str1.equals("DENIED")) {
@@ -47,8 +50,7 @@ public class Main {
 				}
 			}
 		};
-		bufferSerie = new LineaSerie();
-		bufferSerie.initialize(listener);
+		
 		
 		house = new House(Action.getNumActions(),bufferSerie);
 		window = new Window(house);
@@ -56,6 +58,12 @@ public class Main {
 		house.addObserver(window.getTab1());
 		house.addObserver(window.getTab2());
 		
+		socketConn = new SocketConnection(house);
+		WorkerRunnable wr = new WorkerRunnable(socketConn, house);
+		new Thread(wr).start();
+		
+		bufferSerie = new LineaSerie(house, window, socketConn);
+		bufferSerie.initialize(listener);
 	}
 	
 	private void loop() {

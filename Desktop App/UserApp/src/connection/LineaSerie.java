@@ -2,20 +2,34 @@ package connection;
 
 import java.io.IOException;
 import java.io.InputStream;
-import java.io.OutputStream;
 import java.util.Enumeration;
 
 import gnu.io.CommPortIdentifier;
 import gnu.io.SerialPort;
+import gnu.io.SerialPortEvent;
 import gnu.io.SerialPortEventListener;
+import graphicInterface.Window;
+import operation.BuzonSincrono;
 import operation.House;
 
-public class LineaSerie {
+public class LineaSerie implements SerialPortEventListener {
 	
 	SerialPort serialPort;
 	private InputStream input;
 	private static final int TIME_OUT = 2000;
 	private static final int DATA_RATE = 115200;
+	final int NEW_LINE_ASCII = 10;
+	
+	House house;
+	Window window;
+	SocketConnection socketConn;
+
+
+	public LineaSerie(House house, Window window, SocketConnection socketConn) {
+		house = this.house;
+		window = this.window;
+		socketConn = this.socketConn;
+	}
 
 
 	public void initialize(SerialPortEventListener listener) {
@@ -46,6 +60,7 @@ public class LineaSerie {
 	        
 	        //crea los objetos para lectura y escritura de bytes, asociados a la puerta
 	        input = serialPort.getInputStream();
+	        
 	        System.out.println("Objetos de lectura creados... \n");
 	        
 	        //asigna un gestor de eventos a la linea serie
@@ -68,17 +83,47 @@ public class LineaSerie {
 
 	public byte[] leer(){
 		
-		byte[] readBuffer=new byte[50];
-
+		byte b[] = null;;
+		
+		int available = 0 ;
 		try {
-	    	while (input.available() > 0){	
-	    		input.read(readBuffer);
-	    	}
-			return readBuffer;
-	    } catch (IOException e){
-	    	System.out.print("Error de evento \n");
-	    	return null;
-	    }
+			available = input.available();
+			b = new byte[available];
+			input.read(b, 0, input.available());
+			
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		System.out.println("Available: " + available + "String: " + new String(b));
+		
+		return b;
 	}
+
+
+	@Override
+	public void serialEvent(SerialPortEvent arg0) {
+		if(arg0.getEventType() == SerialPortEvent.DATA_AVAILABLE){
+			byte[] infor = leer();
+			short[] data = house.interpretarInformacion((short)infor[0]);
+			String str = "REQUEST%" + data[0] + "%" + data[1] + "\n";
+			System.out.println(str);
+			
+			BuzonSincrono buzon = new BuzonSincrono();
+			window.getTab2().setMessage(data[0], data[1], buzon);
+			String str1 = (String) buzon.receive();
+			if (str1.equals("ACCEPTED")) {
+				System.out.println("to send serial");
+				socketConn.tryWrite(str);
+			}
+			if (str1.equals("DENIED")) {
+				System.out.println("Request denied");
+			}
+		}
+	}
+
+	
 }
+
+
 

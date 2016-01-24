@@ -95,6 +95,9 @@ public class Tab2 extends JPanel implements ListSelectionListener, ActionListene
 		acceptButton.setEnabled(false);
 		denyButton.setEnabled(false);
 		
+		acceptButton.addActionListener(this);
+		denyButton.addActionListener(this);
+		
 		return buttonPanel;
 	}
 
@@ -164,8 +167,10 @@ public class Tab2 extends JPanel implements ListSelectionListener, ActionListene
 	
 	public void setMessage(int user, int action, BuzonSincrono buzon) {
 		if (window.getSelectedLenguage() == 0) message = user + " erabiltzaileak " + action + " akzioa eskatu du";
-		if (window.getSelectedLenguage() == 0) message = "Usuario " + user + " ha pedido acción " + action;
-		if (window.getSelectedLenguage() == 0) message = "User " + user + " has requested action " + action;
+		if (window.getSelectedLenguage() == 1) message = "Usuario " + user + " ha pedido acción " + action;
+		if (window.getSelectedLenguage() == 2) message = "User " + user + " has requested action " + action;
+		
+		System.out.println("set message");
 		
 		acceptButton.setEnabled(true);
 		denyButton.setEnabled(true);
@@ -188,21 +193,23 @@ public class Tab2 extends JPanel implements ListSelectionListener, ActionListene
 	@Override
 	public void actionPerformed(ActionEvent e) {
 		if (window.getObjectsName()[10][window.getSelectedLenguage()] == e.getActionCommand()) { /* ACCEPTED */
+			System.out.println("accepted");
 			if (buzon == null) return;
-			
-			buzon.send("ACCEPTED");
-			
 			acceptButton.setEnabled(false);
 			denyButton.setEnabled(false);
 			
 			inputLabel.setText(defaultMessage);
+			buzon.send("ACCEPTED");
+			
+			
 			
 			buzon = null;
 		}
 		
 		if (window.getObjectsName()[11][window.getSelectedLenguage()] == e.getActionCommand()) { /* DENIED */
+			System.out.println("denied");
 			if (buzon == null) return;
-			
+						
 			buzon.send("DENIED");
 
 			acceptButton.setEnabled(false);
@@ -217,7 +224,7 @@ public class Tab2 extends JPanel implements ListSelectionListener, ActionListene
 	@Override
 	public void update(Observable o, Object arg) {
 		Action action = (Action) arg;
-		
+		System.out.println("Action add");
 		actionList.add(action);
 		listModel.addElement(window.getActionsName()[action.getAction()][window.getSelectedLenguage()]);
 			
