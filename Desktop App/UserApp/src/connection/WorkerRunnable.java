@@ -27,11 +27,13 @@ public class WorkerRunnable implements Runnable {
 	public void run() {
 		String line = null;
 		
-		line = "INIT%" + user;
+		line = "INIT%" + user + "\n";
 		socketConn.tryWrite(line);
+		System.out.println("Init request");
 		
 		while (true) {
 			if ((line = socketConn.tryRead()) != null) {
+				System.out.println("Line recived: " + line);
 				String data[] = line.split("%");
 				
 				switch (data[0]) {
