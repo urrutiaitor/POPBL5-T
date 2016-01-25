@@ -5,6 +5,8 @@ import java.io.DataOutputStream;
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.OutputStream;
+import java.net.InetAddress;
+import java.net.InetSocketAddress;
 import java.net.Socket;
 import java.util.concurrent.Semaphore;
 
@@ -18,7 +20,7 @@ public class SocketConnection {
 	
 	Socket clientSocket = null;
 	protected int serverPort = 8080;
-	String hostName = "localhost";
+	String hostName = "172.17.16.86";
 	
 	Semaphore mutex;
 	
@@ -33,6 +35,7 @@ public class SocketConnection {
 		
 		try {
 			clientSocket = new Socket(hostName, serverPort);
+			System.out.println("Socket created in port " + clientSocket.getLocalPort());
 		} catch (IOException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
@@ -78,22 +81,14 @@ public class SocketConnection {
 	
 	public boolean tryWrite(String str){
 		try {
-			mutex.acquire();
-		} catch (InterruptedException e1) {
-			// TODO Auto-generated catch block
-			e1.printStackTrace();
-		}
-		
-		try {
 			dataOutput.writeBytes(str);
+			System.out.println("send serial");
+
 		} catch (IOException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
-			mutex.release();
 			return false;
 		}
-		
-		mutex.release();
 		
 		return true;
 	}
