@@ -15,8 +15,6 @@ import operation.House;
 public class WorkerRunnable implements Runnable, Observer {
 
 	House house;
-	int user;
-	long initTime;
 	
 	protected Socket clientSocket = null;
 	protected String serverText = null;
@@ -24,8 +22,6 @@ public class WorkerRunnable implements Runnable, Observer {
 	public WorkerRunnable(Socket clientSocket, House house) {
 		this.clientSocket = clientSocket;
 		this.house = house;
-		user = 0;
-		initTime = 0;
 	}
 
 	@Override
@@ -38,25 +34,25 @@ public class WorkerRunnable implements Runnable, Observer {
 			DataInputStream dataInput = new DataInputStream(input);
 			DataOutputStream dataOutput = new DataOutputStream(output);
 			
+			System.out.println("Socket connection established");
+			
 			while (true) {
 				String line = dataInput.readLine();
+				System.out.println("Line recived: " + line);
 				String data[] = line.split("%");
 				
 				switch (data[0]) {
 				case "REQUEST":
-					user = Integer.valueOf(data[1]);
-					initTime = Integer.valueOf(data[2]);
-					sendInfo(dataInput, dataOutput);
-					break;
-				case "CHANGE":
 					house.makeAction(Short.valueOf(data[1]), Short.valueOf(data[2]));
+					break;
+				case "INIT":
+					sendInfo(dataInput, dataOutput);
 					break;
 				}
 			}
 			
 		} catch (IOException e) {
-			// report exception somewhere.
-			e.printStackTrace();
+			System.err.println("Connection closed");
 		}
 	}
 
@@ -72,7 +68,7 @@ public class WorkerRunnable implements Runnable, Observer {
 		DataOutputStream dataOutput = new DataOutputStream(output);
 		
 		try {
-			dataOutput.writeBytes("CHANGE%" + String.valueOf(data[1] + "%" + String.valueOf(data[0])));
+			dataOutput.writeBytes("CHANGE%" + String.valueOf(data[1] + "%" + String.valueOf(data[0]) + "\n"));
 		} catch (IOException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
@@ -93,9 +89,9 @@ public class WorkerRunnable implements Runnable, Observer {
 		if (house.isLight3()) light3 = 1;
 		if (house.isLight4()) light4 = 1;
 		
-		String out = blinds + "%" + heating + "%" + 
+		String out = "INFO%" + blinds + "%" + heating + "%" + 
 				door + "%" + alarm + "%" + light1 + "%" +
-				light2 + "%" + light3 + "%" + light4;
+				light2 + "%" + light3 + "%" + light4 + "\n";
 		
 		try {
 			dataOutput.writeBytes(out);

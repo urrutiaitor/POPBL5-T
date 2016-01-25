@@ -29,6 +29,7 @@ public class MultiThreadedServer implements Runnable {
 			Socket clientSocket = null;
 			try {
 				clientSocket = this.serverSocket.accept();
+				System.out.println("Client connected");
 			} catch (IOException e) {
 				if (isStopped()) {
 					System.out.println("Server Stopped.");
@@ -62,6 +63,7 @@ public class MultiThreadedServer implements Runnable {
 		} catch (IOException e) {
 			throw new RuntimeException("Cannot open port " + serverPort, e);
 		}
+		System.out.println("Server opened");
 	}
 
 }

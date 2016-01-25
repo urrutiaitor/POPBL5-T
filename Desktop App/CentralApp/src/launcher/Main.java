@@ -38,7 +38,7 @@ public class Main {
 		
 		house.addObserver(window);
 		
-		server = new MultiThreadedServer(9000, house);
+		server = new MultiThreadedServer(8080, house);
 		new Thread(server).start();
 	}
 	

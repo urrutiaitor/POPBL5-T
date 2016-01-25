@@ -24,10 +24,7 @@ public class House extends Observable{
 	boolean states[];
 	Semaphore mutex; 
 	ArrayList<Semaphore> socketsReaders; //hilos sockets leer a estado de la casa o a cambios, cada cliente un semaforo.
-	ArrayList<Semaphore> socketsWriters; //hilos sockets peticion de accion, cada cliente un semaforo.
 	ArrayList<Action> changes;
-	Semaphore serialWriter; // hilo recibirCambioEnPlaca: recibir del serial y cambiar estado.
-	Semaphore serialReader; //hilo hacerCambiosEnPlaca: mandar por serial a placa el cambio.
 	ArrayList<Integer> changesIndex;
 	LineaSerie serial;
 	
@@ -42,16 +39,11 @@ public class House extends Observable{
 		changes = new ArrayList<Action>();
 		states = new boolean[numActions/2];
 		mutex = new Semaphore(1);
-		serialWriter = new Semaphore(1);
 		socketsReaders = new ArrayList<>();
-		socketsWriters = new ArrayList<>();
 		for(int i=0; i<socketsReaders.size();i++){
 			Semaphore aux = new Semaphore(1);
 			socketsReaders.add(aux);
-			Semaphore aux2 = new Semaphore(1);
-			socketsWriters.add(aux2);
 		}
-		serialReader = new Semaphore(1);
 		changesIndex = new ArrayList<>();
 		for(int i=0;i<changesIndex.size();i++){
 			changesIndex.set(i, 0);
@@ -68,7 +60,6 @@ public class House extends Observable{
 		
 		try {
 			
-			serialReader.acquire();
 			mutex.acquire();
 			infor = serial.leer();
 			for(int i = 0; i < infor.length; i++){
@@ -91,8 +82,6 @@ public class House extends Observable{
 					socketsReaders.get(x).release();
 				}
 			}
-			
-			serialReader.release();
 			
 			mutex.release();
 		
@@ -194,11 +183,10 @@ public class House extends Observable{
 		data[1] = action;
 		try {
 			
-			serialWriter.acquire();
 			mutex.acquire();
-			generarInformacion(data);
+			char c = generarInformacion(data);
+			serial.escribir(c);
 			mutex.release();
-			serialWriter.release();
 		
 		} catch (InterruptedException e) {
 			// TODO Auto-generated catch block
@@ -245,7 +233,7 @@ public class House extends Observable{
 		// TODO Auto-generated catch block
 		e.printStackTrace();
 		}
-		if(states[1]==true){
+		if(states[0]==true){
 			mutex.release();
 			return true;
 		}else{
@@ -263,7 +251,7 @@ public class House extends Observable{
 		// TODO Auto-generated catch block
 		e.printStackTrace();
 		}
-		if(states[2]==true){
+		if(states[1]==true){
 			mutex.release();
 			return true;
 		}else{
@@ -280,7 +268,7 @@ public class House extends Observable{
 		// TODO Auto-generated catch block
 		e.printStackTrace();
 		}
-		if(states[3]==true){
+		if(states[2]==true){
 			mutex.release();
 			return true;
 		}else{
@@ -297,7 +285,7 @@ public class House extends Observable{
 		// TODO Auto-generated catch block
 		e.printStackTrace();
 		}
-		if(states[4]==true){
+		if(states[3]==true){
 			mutex.release();
 			return true;
 		}else{
@@ -314,7 +302,7 @@ public class House extends Observable{
 		// TODO Auto-generated catch block
 		e.printStackTrace();
 		}
-		if(states[5]==true){
+		if(states[4]==true){
 			mutex.release();
 			return true;
 		}else{
@@ -331,7 +319,7 @@ public class House extends Observable{
 		// TODO Auto-generated catch block
 		e.printStackTrace();
 		}
-		if(states[6]==true){
+		if(states[5]==true){
 			mutex.release();
 			return true;
 		}else{
@@ -348,7 +336,7 @@ public class House extends Observable{
 		// TODO Auto-generated catch block
 		e.printStackTrace();
 		}
-		if(states[7]==true){
+		if(states[6]==true){
 			mutex.release();
 			return true;
 		}else{
@@ -365,7 +353,7 @@ public class House extends Observable{
 		// TODO Auto-generated catch block
 		e.printStackTrace();
 		}
-		if(states[8]==true){
+		if(states[7]==true){
 			mutex.release();
 			return true;
 		}else{
