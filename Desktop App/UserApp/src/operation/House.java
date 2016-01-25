@@ -58,44 +58,7 @@ public class House extends Observable{
 	}
 	*/
 	
-	public short[] interpretarInformacion(short inforInt) {
-		// TODO Auto-generated method stub
-		boolean bits[] = new boolean[8];
-		short divisor = 128;
-		short multiplicador = 1;
-		short accion = 0, usuario = 0;
-		short datos[] = new short[2];
-		
-		for (int i = 0; i < 8; i++){
-			if (inforInt/divisor > 0){
-				inforInt = (short) (inforInt - divisor);
-				divisor = (short)(divisor/2);
-				bits[i] = true;
-			} else {
-				divisor = (short) (divisor/2);
-				bits[i] = false;
-			}
-		}
-				
-		for (int i = 0; i < 5; i++){
-			if (bits[7 - i]){
-				accion = (short) (accion + multiplicador);
-			}
-			multiplicador = (short) (multiplicador*2);
-		}
-		
-		multiplicador = 1;
-		for (int i = 0; i < 3; i++){
-			if (bits[2 - i]){
-				usuario = (short) (usuario + multiplicador);
-			}
-			multiplicador = (short) (multiplicador*2);
-		}
-		datos[1] = accion;
-		datos[0] = usuario;
-	      
-		return datos;
-	}
+	
 
 	public boolean isBlinds() {
 		// TODO Auto-generated method stub
