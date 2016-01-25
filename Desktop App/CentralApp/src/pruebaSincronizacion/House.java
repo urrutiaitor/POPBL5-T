@@ -90,7 +90,7 @@ public class House extends Observable{
 				for(int x=0;x<socketsReaders.size();x++){
 					socketsReaders.get(x).release();
 				}
-				serialWriter.release();
+				
 			//}
 			
 			
@@ -195,7 +195,6 @@ public class House extends Observable{
 		char caracter;
 		try {
 			
-			serialWriter.acquire();
 			mutex.acquire();
 			caracter = generarInformacion(data);
 			serial.escribir(caracter);
@@ -379,37 +378,5 @@ public class House extends Observable{
 		}
 	}
 
-
-
-//	public boolean hasChanged(int action){
-//		boolean currentState;
-//		boolean changed = false;
-//		
-//		try {
-//			if(receivedAction.tryAcquire(1, TimeUnit.SECONDS)){
-//				receivedAction.acquire();
-//				if(action%2 == 0){
-//				currentState = false;
-//				}else{
-//					currentState = true;
-//				}
-//				if(states[action/2] == currentState){
-//					changed = true;
-//				}
-//				else{
-//					changed = false;
-//				}
-//			}
-//			
-//		} catch (InterruptedException e) {
-//			// TODO Auto-generated catch block
-//			e.printStackTrace();
-//		}
-//		return changed;
-//		
-//	}
-
-	
-	
 	
 }
